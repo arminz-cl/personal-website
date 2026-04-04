@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Armin Zirak — Style 4: Terminal</title>
+  <title>Armin Zirak — Data Engineer</title>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -178,8 +178,9 @@
   <div class="window-title">armin@portfolio:~</div>
   <div class="nav-cmds">
     <a href="#experience">experience</a>
-    <a href="#projects">projects</a>
-    <a href="#personal">personal</a>
+    <a href="#stack">stack</a>
+    <a href="#projects">ai-projects</a>
+    <a href="#publications">publications</a>
     <a href="#contact">contact</a>
   </div>
 </div>
@@ -196,17 +197,17 @@
  \___)(__)(_)(_/\/\_)(__)(\___)  (__) (__)(__\_)(  (__) (__\_)</pre>
     <div class="hero-info"><span class="key">name:</span><span class="val">Armin Zirak</span></div>
     <div class="hero-info"><span class="key">role:</span><span class="val">Data Engineer @ Instacart</span></div>
-    <div class="hero-info"><span class="key">location:</span><span class="val">Toronto, Ontario, Canada</span></div>
-    <div class="hero-info"><span class="key">experience:</span><span class="val">6+ years data engineering, 2+ years ML/AI</span></div>
-    <div class="hero-info"><span class="key">cert:</span><span class="val">AWS Certified Data Engineer</span></div>
-    <div class="hero-info"><span class="key">education:</span><span class="val">M.Sc. Software Engineering, University of Calgary</span></div>
-    <div class="hero-info"><span class="key">research:</span><span class="val">20+ citations, ICSE 2024</span></div>
+    <div class="hero-info"><span class="key">location:</span><span class="val">Toronto, Canada</span></div>
+    <div class="hero-info"><span class="key">title:</span><span class="val">Data engineer, ML/AI practitioner, and occasional university instructor.</span></div>
+    <div class="hero-info"><span class="key">experience:</span><span class="val">5+ years data engineering, 2+ years ML/AI</span></div>
+    <div class="hero-info"><span class="key">education:</span><span class="val">M.Sc. Software Engineering (ML focus), University of Calgary</span></div>
+    <div class="hero-info"><span class="key">research:</span><span class="val">36+ citations, 4 publications</span></div>
   </div>
 
   <!-- Skills -->
   <div class="prompt"><span class="ps1">armin@portfolio:~$ </span><span class="cmd">cat skills.txt</span></div>
   <div class="output">
-    Snowflake · dbt · Apache Airflow · Python · Spark · AWS · PostgreSQL · Redshift · ETL/ELT · Data Modeling · NLP · LLMs · Recommender Systems
+    Snowflake · dbt · Apache Airflow · Apache Spark · AWS Glue · Redshift · PostgreSQL · ETL/ELT · Data Modeling · CDC · Python · PyTorch · LLMs · NLP · AWS
   </div>
 
   <!-- Experience -->
@@ -225,75 +226,81 @@
       </thead>
       <tbody>
         <tr>
-          <td class="td-date">Jun 2025 – now</td>
+          <td class="td-date">Jun 2025 – present</td>
           <td class="td-co">Instacart</td>
           <td class="td-role">Data Engineer</td>
-          <td class="td-desc">Snowflake, dbt, Airflow. Catalog pipelines. Data quality + SOX compliance.</td>
+          <td class="td-desc">Building and maintaining catalog data pipelines. Snowflake, dbt, Airflow. SOX compliance.</td>
         </tr>
         <tr>
           <td class="td-date">Feb 2024 – Jun 2025</td>
           <td class="td-co">Reach</td>
           <td class="td-role">Analytics Engineer</td>
-          <td class="td-desc">Payments pipeline. CDC-based ELT migration, 120+ tables (Postgres → Snowflake).</td>
-        </tr>
-        <tr>
-          <td class="td-date">Sep – Dec 2024</td>
-          <td class="td-co">Univ. of Calgary</td>
-          <td class="td-role">Sessional Instructor</td>
-          <td class="td-desc">SENG 550 Data Engineering. Managed 4 TAs. Databases, Spark, ETL, distributed systems.</td>
+          <td class="td-desc">Owned the payments data pipeline end to end. Led a CDC-ELT migration across 120+ tables.</td>
         </tr>
         <tr>
           <td class="td-date">Mar 2023 – Feb 2024</td>
           <td class="td-co">TouchBistro</td>
           <td class="td-role">Data Engineer</td>
-          <td class="td-desc">ETL migration to AWS Glue (Spark), Airflow, S3, Redshift. Star schema architecture.</td>
+          <td class="td-desc">Migrated legacy ETL systems to AWS Glue, Airflow, and Redshift.</td>
         </tr>
         <tr>
           <td class="td-date">Jul 2020 – Sep 2022</td>
           <td class="td-co">Univ. of Calgary</td>
           <td class="td-role">ML Developer (NLP/LLM)</td>
-          <td class="td-desc">Automated Program Repair with GPT-4. 20+ citations. ICSE 2024.</td>
+          <td class="td-desc">LLM research for Automated Program Repair using GPT-4. 36+ citations across 4 publications.</td>
         </tr>
         <tr>
           <td class="td-date">Jan 2019 – Dec 2020</td>
           <td class="td-co">Yektanet</td>
-          <td class="td-role">Data Scientist & Engineer</td>
-          <td class="td-desc">Spark recommender system. ~20M users, ~200 req/s. Collab filtering + NLP.</td>
+          <td class="td-role">Data and AI Engineer</td>
+          <td class="td-desc">Built a Spark-based recommender system serving ~20M users.</td>
+        </tr>
+        <tr>
+          <td class="td-date">Fall 2025 &amp; Fall 2024</td>
+          <td class="td-co">Univ. of Calgary</td>
+          <td class="td-role">Sessional Instructor</td>
+          <td class="td-desc">SENG 550: Data Engineering. Databases, Spark, ETL/ELT, distributed systems.</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <!-- Projects -->
-  <div class="section-cmd" id="projects">
-    <div class="prompt"><span class="ps1">armin@portfolio:~$ </span><span class="cmd">ls ./projects/</span></div>
+  <!-- Tech Stack -->
+  <div class="section-cmd" id="stack">
+    <div class="prompt"><span class="ps1">armin@portfolio:~$ </span><span class="cmd">cat stack.json</span></div>
   </div>
   <div class="output">
-    <ul class="proj-list">
-      <li><span class="proj-arrow">→</span><span class="proj-name">personal-website/</span><span class="proj-desc">Built with Claude Code + Next.js. Open source on GitHub.</span></li>
-      <li><span class="proj-arrow">→</span><span class="proj-name">nlp-research/</span><span class="proj-desc">Automated Program Repair using LLMs. 20+ citations, ICSE 2024.</span></li>
-      <li><span class="proj-arrow">→</span><span class="proj-name">recommender-sys/</span><span class="proj-desc">Spark-based system for ~20M users. Collaborative filtering + NLP.</span></li>
-      <li><span class="proj-arrow">→</span><span class="proj-name">seng550-course/</span><span class="proj-desc">Data Engineering curriculum design at U of Calgary.</span></li>
+    <ul class="contact-list">
+      <li><span class="key">data_eng:</span><span style="color:var(--text);">Snowflake, dbt, Airflow, Spark, AWS Glue, Redshift, PostgreSQL, ETL/ELT, Data Modeling, CDC, Data Observability, MongoDB, Elasticsearch</span></li>
+      <li><span class="key">ml_ai:</span><span style="color:var(--text);">Python, PyTorch, Hugging Face, LLMs, NLP, Recommender Systems, scikit-learn, OpenAI API, MLflow, Pandas</span></li>
+      <li><span class="key">cloud:</span><span style="color:var(--text);">AWS, S3, Lambda, EC2, RDS, AWS Glue, Datadog, ELK Stack</span></li>
+      <li><span class="key">ai_tools:</span><span style="color:var(--text);">Claude Code, Cursor, ChatGPT</span></li>
+      <li><span class="key">reading:</span><span style="color:var(--text);">Designing Data-Intensive Applications, Fundamentals of Data Engineering, AI Engineering (O'Reilly)</span></li>
     </ul>
   </div>
 
-  <!-- Personal -->
-  <div class="section-cmd" id="personal">
-    <div class="prompt"><span class="ps1">armin@portfolio:~$ </span><span class="cmd">cat personal.md</span></div>
+  <!-- AI Projects -->
+  <div class="section-cmd" id="projects">
+    <div class="prompt"><span class="ps1">armin@portfolio:~$ </span><span class="cmd">ls ./ai-projects/</span></div>
   </div>
   <div class="output">
-    <div class="personal-output">
-      <p><span class="comment"># background</span><br>
-      Originally from Iran. In Canada for 6 years — mostly Alberta (mountains, hiking, nature). Recently moved to Toronto. Still adjusting to the city.</p>
-      <p><span class="comment"># interests</span><br>
-      I follow politics, economics, and news for real — not casually. Reading, writing, real conversations about what's happening in the world. Mustang fan (still waiting).</p>
-      <p><span class="comment"># fun_facts</span><br>
-      - Took a full month off in Iran last year. Complete disconnect. Best thing I did.<br>
-      - Senior data engineer who got fully hacked by a trojan. Lost everything. Very humbling.<br>
-      - PhD in panicking. But if I say it's different this time — it might actually be.</p>
-      <p><span class="comment"># note</span><br>
-      I have many personal issues, but I won't share them here — not even you, dear hiring manager 😄</p>
-    </div>
+    <ul class="proj-list">
+      <li><span class="proj-arrow">→</span><span class="proj-name">personal-website/</span><span class="proj-desc">Built entirely with Claude Code + Next.js. Open source — <a href="https://github.com/arminzir/personal-website" style="color:var(--green);">github.com/arminzir/personal-website</a></span></li>
+    </ul>
+  </div>
+
+  <!-- Publications -->
+  <div class="section-cmd" id="publications">
+    <div class="prompt"><span class="ps1">armin@portfolio:~$ </span><span class="cmd">cat publications.bib</span></div>
+  </div>
+  <div class="output">
+    <ul class="proj-list">
+      <li><span class="proj-arrow">→</span><span class="proj-name">APR-domain-adapt/</span><span class="proj-desc">Improving Automated Program Repair with Domain Adaptation. ACM TOSEM · ICSE 2024. 28 citations.</span></li>
+      <li><span class="proj-arrow">→</span><span class="proj-name">recommender-eval/</span><span class="proj-desc">Online and Offline Evaluations of CF and CB Recommender Systems. arXiv · 2024. 4 citations.</span></li>
+      <li><span class="proj-arrow">→</span><span class="proj-name">msc-thesis/</span><span class="proj-desc">Domain Adaptation for Automated Program Repair. Master's Thesis, U of Calgary · 2022.</span></li>
+      <li><span class="proj-arrow">→</span><span class="proj-name">travel-time/</span><span class="proj-desc">Real-time Travel Time Estimation Using Matrix Factorization. arXiv · 2019. 4 citations.</span></li>
+    </ul>
+    <div style="margin-top:0.75rem;"><span class="comment"># total: 36+ citations — </span><a href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en" style="color:var(--green);">scholar.google.com</a></div>
   </div>
 
   <!-- Contact -->
@@ -304,7 +311,6 @@
     <ul class="contact-list">
       <li><span class="key">email:</span><a href="mailto:arminzirak2@gmail.com">arminzirak2@gmail.com</a></li>
       <li><span class="key">linkedin:</span><a href="https://ca.linkedin.com/in/arminzirak">linkedin.com/in/arminzirak</a></li>
-      <li><span class="key">scholar:</span><a href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">scholar.google.com — 20+ citations</a></li>
     </ul>
   </div>
 

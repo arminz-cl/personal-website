@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Armin Zirak — Style 1: Minimal</title>
+  <title>Armin Zirak — Data Engineer</title>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -183,8 +183,9 @@
   <div class="nav-logo">Armin Zirak</div>
   <div class="nav-links">
     <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#personal">Personal</a>
+    <a href="#stack">Stack</a>
+    <a href="#projects">AI Projects</a>
+    <a href="#publications">Publications</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -194,15 +195,12 @@
   <section id="hero">
     <div class="eyebrow">Data Engineer · Toronto, Canada</div>
     <h1>Armin Zirak</h1>
-    <p class="hero-sub">6+ years building data pipelines, warehouses, and distributed systems at scale. Background in ML/AI. AWS certified. Big believer in strong fundamentals.</p>
+    <p class="hero-sub">Data engineer, ML/AI practitioner, and occasional university instructor.</p>
+    <p class="hero-sub" style="margin-top:0.5rem;">5+ years in data engineering, with hands-on AI/ML experience and a master's in software engineering (ML focus). Fundamentals-first: data modeling, system design, and understanding the <em>why</em> behind how systems work.</p>
     <div class="tags">
-      <span class="tag">Data Engineering</span>
-      <span class="tag">Snowflake + dbt</span>
-      <span class="tag">Apache Airflow</span>
-      <span class="tag">Python</span>
-      <span class="tag">Machine Learning</span>
-      <span class="tag">AWS Certified</span>
-      <span class="tag">Spark</span>
+      <span class="tag">5+ Years DE</span>
+      <span class="tag">2+ Years ML/AI</span>
+      <span class="tag">M.Sc. Software Eng.</span>
     </div>
   </section>
 
@@ -212,31 +210,23 @@
       <div>
         <div class="exp-role">Data Engineer</div>
         <div class="exp-company">Instacart</div>
-        <div class="exp-desc">Building scalable catalog data pipelines on Snowflake, dbt, and Airflow. Focus on data quality, SOX compliance, and reliability.</div>
+        <div class="exp-desc">Building and maintaining catalog data pipelines. Snowflake, dbt, Airflow. SOX compliance.</div>
       </div>
       <div class="exp-date">Jun 2025 – Present</div>
     </div>
     <div class="exp-item">
       <div>
-        <div class="exp-role">Data (Analytics) Engineer</div>
+        <div class="exp-role">Analytics Engineer</div>
         <div class="exp-company">Reach</div>
-        <div class="exp-desc">Led payments pipeline implementation. Migrated a CDC-based ELT system across 120+ PostgreSQL/Snowflake tables.</div>
+        <div class="exp-desc">Owned the payments data pipeline end to end. Led a CDC-ELT migration across 120+ tables.</div>
       </div>
       <div class="exp-date">Feb 2024 – Jun 2025</div>
     </div>
     <div class="exp-item">
       <div>
-        <div class="exp-role">Sessional Instructor — Data Engineering</div>
-        <div class="exp-company">University of Calgary</div>
-        <div class="exp-desc">Taught SENG 550 to senior undergrad students (databases, Spark, ETL/ELT, distributed systems). Managed 4 TAs.</div>
-      </div>
-      <div class="exp-date">Sep – Dec 2024</div>
-    </div>
-    <div class="exp-item">
-      <div>
         <div class="exp-role">Data Engineer</div>
         <div class="exp-company">TouchBistro</div>
-        <div class="exp-desc">Migrated restaurant ETL pipelines to AWS Glue (Spark), Airflow, S3, and Redshift, enabling parallel batch processing.</div>
+        <div class="exp-desc">Migrated legacy ETL systems to AWS Glue, Airflow, and Redshift.</div>
       </div>
       <div class="exp-date">Mar 2023 – Feb 2024</div>
     </div>
@@ -244,57 +234,108 @@
       <div>
         <div class="exp-role">Machine Learning Developer (NLP/LLM)</div>
         <div class="exp-company">University of Calgary</div>
-        <div class="exp-desc">Researched LLMs for Automated Program Repair. 20+ citations, paper at ICSE 2024.</div>
+        <div class="exp-desc">LLM research for Automated Program Repair using GPT-4. 36+ citations across 4 publications.</div>
       </div>
       <div class="exp-date">Jul 2020 – Sep 2022</div>
     </div>
     <div class="exp-item">
       <div>
-        <div class="exp-role">Data Scientist & Engineer</div>
+        <div class="exp-role">Data and AI Engineer</div>
         <div class="exp-company">Yektanet</div>
-        <div class="exp-desc">Built a Spark-based recommender system serving ~20M users at ~200 req/s. Collaborative filtering + NLP-based analysis.</div>
+        <div class="exp-desc">Built a Spark-based recommender system serving ~20M users.</div>
       </div>
       <div class="exp-date">Jan 2019 – Dec 2020</div>
+    </div>
+
+    <div class="section-label" style="margin-top:2rem;">Teaching Experience</div>
+    <div class="exp-item">
+      <div>
+        <div class="exp-role">Sessional Instructor, SENG 550 — Data Engineering</div>
+        <div class="exp-company">University of Calgary</div>
+      </div>
+      <div class="exp-date">Fall 2025</div>
+    </div>
+    <div class="exp-item">
+      <div>
+        <div class="exp-role">Sessional Instructor, SENG 550 — Data Engineering</div>
+        <div class="exp-company">University of Calgary</div>
+      </div>
+      <div class="exp-date">Fall 2024</div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="section-label">Technical Stack</div>
+    <div class="fun-box">
+      <h3>Data Engineering</h3>
+      <p style="font-size:0.875rem;color:#374151;">Snowflake, dbt, Apache Airflow, Apache Spark, AWS Glue, Redshift, PostgreSQL, ETL/ELT, Data Modeling, Data Warehousing, Dimensional Modeling, CDC, Data Pipelines, Data Governance, Slowly Changing Dimensions, Data Observability, Query Optimization, MongoDB, Elasticsearch</p>
+    </div>
+    <div class="fun-box" style="margin-top:1rem;">
+      <h3>ML/AI</h3>
+      <p style="font-size:0.875rem;color:#374151;">Python, PyTorch, Hugging Face, LLMs, NLP, Recommender Systems, scikit-learn, OpenAI API, MLflow, Pandas</p>
+    </div>
+    <div class="fun-box" style="margin-top:1rem;">
+      <h3>Cloud & Infrastructure</h3>
+      <p style="font-size:0.875rem;color:#374151;">AWS, S3, Lambda, EC2, RDS, AWS Glue, Datadog, ELK Stack</p>
+    </div>
+    <div class="fun-box" style="margin-top:1rem;">
+      <h3>AI Tools</h3>
+      <p style="font-size:0.875rem;color:#374151;">Claude Code, Cursor, ChatGPT</p>
+    </div>
+    <div class="fun-box" style="margin-top:1rem;">
+      <h3>Books I'm Reading</h3>
+      <p style="font-size:0.875rem;color:#374151;">Designing Data-Intensive Applications, Fundamentals of Data Engineering, AI Engineering (O'Reilly)</p>
     </div>
   </section>
 
   <section id="projects">
-    <div class="section-label">Projects</div>
+    <div class="section-label">AI Projects</div>
     <div class="projects-grid">
       <div class="project-card">
-        <h3>Personal Website</h3>
-        <p>This site, built with Claude Code + Next.js. Open source on GitHub.</p>
-      </div>
-      <div class="project-card">
-        <h3>NLP Research</h3>
-        <p>Automated Program Repair using LLMs. 20+ citations, ICSE 2024.</p>
-      </div>
-      <div class="project-card">
-        <h3>Recommender System</h3>
-        <p>End-to-end Spark system for ~20M users. Collaborative filtering + NLP.</p>
-      </div>
-      <div class="project-card">
-        <h3>University Teaching</h3>
-        <p>SENG 550 at University of Calgary. Designed curriculum and assignments.</p>
+        <h3>This Website <span style="font-weight:400;font-size:0.85rem;">(In progress)</span></h3>
+        <p>Built entirely with Claude Code + Next.js. Open source — see how it was made.</p>
+        <p style="margin-top:0.5rem;"><a href="https://github.com/arminzir/personal-website" style="color:var(--accent);font-size:0.8rem;">View on GitHub →</a></p>
       </div>
     </div>
   </section>
 
-  <section id="personal">
-    <div class="section-label">Personal</div>
-    <div class="personal-text">
-      <p>Originally from Iran, I've been in Canada for 6 years — mostly Alberta, recently moved to Toronto. Trading mountain trails for city chaos. Still adjusting.</p>
-      <p>Outside of tech, I follow politics, economics, and the news — not just casually. I enjoy reading, writing, and having real conversations about what's going on in the world.</p>
-      <p>I'm a Mustang fan still waiting for the right moment. Big believer in working hard, building a good life, and exploring what comes next. Not someone who settles easily.</p>
+  <section id="publications">
+    <div class="section-label">AI Publications</div>
+    <p style="font-size:0.875rem;color:var(--muted);margin-bottom:1.5rem;"><strong>36 citations</strong> across 4 publications</p>
+    <div class="exp-item">
+      <div>
+        <div class="exp-role">Improving Automated Program Repair with Domain Adaptation</div>
+        <div class="exp-company">Journal Paper · Conference Presentation — ACM TOSEM · ICSE 2024</div>
+        <div class="exp-desc">28 citations</div>
+      </div>
+      <div class="exp-date"><a href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en" style="color:var(--accent);">Read →</a></div>
     </div>
-    <div class="fun-box">
-      <h3>Fun facts</h3>
-      <ul>
-        <li>Took a full month off in Iran last year. Complete disconnect. 10/10 would recommend.</li>
-        <li>Senior data engineer who once got fully hacked by a trojan. Very humbling.</li>
-        <li>I have a PhD in panicking. But if I say it's different this time — it might actually be.</li>
-      </ul>
+    <div class="exp-item">
+      <div>
+        <div class="exp-role">Online and Offline Evaluations of Collaborative Filtering and Content Based Recommender Systems</div>
+        <div class="exp-company">Preprint — arXiv · 2024</div>
+        <div class="exp-desc">4 citations</div>
+      </div>
+      <div class="exp-date"><a href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en" style="color:var(--accent);">Read →</a></div>
     </div>
+    <div class="exp-item">
+      <div>
+        <div class="exp-role">Domain Adaptation for Automated Program Repair</div>
+        <div class="exp-company">Master's Thesis — Schulich School of Engineering, University of Calgary · 2022</div>
+      </div>
+      <div class="exp-date"><a href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en" style="color:var(--accent);">Read →</a></div>
+    </div>
+    <div class="exp-item">
+      <div>
+        <div class="exp-role">Real-time Travel Time Estimation Using Matrix Factorization</div>
+        <div class="exp-company">Preprint — arXiv · 2019</div>
+        <div class="exp-desc">4 citations</div>
+      </div>
+      <div class="exp-date"><a href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en" style="color:var(--accent);">Read →</a></div>
+    </div>
+    <a class="contact-link" href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">
+      <span class="contact-label">Scholar</span>View all on Google Scholar — 36+ citations
+    </a>
   </section>
 
   <section id="contact">
@@ -304,9 +345,6 @@
     </a>
     <a class="contact-link" href="https://ca.linkedin.com/in/arminzirak">
       <span class="contact-label">LinkedIn</span>linkedin.com/in/arminzirak
-    </a>
-    <a class="contact-link" href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">
-      <span class="contact-label">Scholar</span>Google Scholar — 20+ citations
     </a>
   </section>
 

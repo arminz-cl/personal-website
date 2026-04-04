@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Armin Zirak — Style 6: Bold Dark + Scroll Reveal</title>
+  <title>Armin Zirak — Data Engineer</title>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -327,8 +327,9 @@
   <div class="nav-logo">AZ</div>
   <div class="nav-links">
     <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#personal">Personal</a>
+    <a href="#stack">Stack</a>
+    <a href="#projects">AI Projects</a>
+    <a href="#publications">Publications</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -337,7 +338,7 @@
   <div class="hero-inner">
     <div class="hero-tag">Data Engineer · Toronto, Canada</div>
     <h1>Armin<br><span class="gradient-text">Zirak.</span></h1>
-    <p class="hero-sub">5+ years building data pipelines, warehouses, and distributed systems. Background in ML/AI. AWS Certified. I care about getting the fundamentals right.</p>
+    <p class="hero-sub">Data engineer, ML/AI practitioner, and occasional university instructor. 5+ years in data engineering, with hands-on AI/ML experience and a master's in software engineering (ML focus).</p>
     <div class="hero-actions">
       <a class="btn-primary" href="#experience">See my work</a>
       <a class="btn-ghost" href="#contact">Get in touch</a>
@@ -363,7 +364,7 @@
     </div>
     <div>
       <div class="exp-role">Data Engineer</div>
-      <div class="exp-desc">Building scalable catalog data pipelines on Snowflake, dbt, and Airflow. Focus on data quality, SOX compliance, and reliability.</div>
+      <div class="exp-desc">Building and maintaining catalog data pipelines. Snowflake, dbt, Airflow. SOX compliance.</div>
     </div>
   </div>
 
@@ -373,112 +374,173 @@
       <div class="exp-co">Reach</div>
     </div>
     <div>
-      <div class="exp-role">Data (Analytics) Engineer</div>
-      <div class="exp-desc">Led centralized payments pipeline implementation. Migrated CDC-based ELT system across 120+ PostgreSQL/Snowflake tables.</div>
+      <div class="exp-role">Analytics Engineer</div>
+      <div class="exp-desc">Owned the payments data pipeline end to end. Led a CDC-ELT migration across 120+ tables.</div>
     </div>
   </div>
 
   <div class="exp-item reveal delay-3">
-    <div>
-      <div class="exp-date">Sep – Dec 2024</div>
-      <div class="exp-co">University of Calgary</div>
-    </div>
-    <div>
-      <div class="exp-role">Sessional Instructor — Data Engineering</div>
-      <div class="exp-desc">Taught SENG 550 to senior undergrads. Topics: databases, Spark, ETL/ELT, distributed systems. Managed 4 TAs.</div>
-    </div>
-  </div>
-
-  <div class="exp-item reveal delay-4">
     <div>
       <div class="exp-date">Mar 2023 – Feb 2024</div>
       <div class="exp-co">TouchBistro</div>
     </div>
     <div>
       <div class="exp-role">Data Engineer</div>
-      <div class="exp-desc">Migrated restaurant ETL pipelines to AWS Glue (Spark), Airflow, S3, and Redshift. Enabled parallel batch processing with Star schema.</div>
+      <div class="exp-desc">Migrated legacy ETL systems to AWS Glue, Airflow, and Redshift.</div>
     </div>
   </div>
 
-  <div class="exp-item reveal delay-5">
+  <div class="exp-item reveal delay-4">
     <div>
       <div class="exp-date">Jul 2020 – Sep 2022</div>
       <div class="exp-co">University of Calgary</div>
     </div>
     <div>
       <div class="exp-role">Machine Learning Developer (NLP/LLM)</div>
-      <div class="exp-desc">LLM research for Automated Program Repair with GPT-4. 20+ citations, paper at ICSE 2024.</div>
+      <div class="exp-desc">LLM research for Automated Program Repair using GPT-4. 36+ citations across 4 publications.</div>
     </div>
   </div>
 
-  <div class="exp-item reveal delay-2">
+  <div class="exp-item reveal delay-5">
     <div>
       <div class="exp-date">Jan 2019 – Dec 2020</div>
       <div class="exp-co">Yektanet</div>
     </div>
     <div>
-      <div class="exp-role">Data Scientist & Engineer</div>
-      <div class="exp-desc">Built a Spark-based recommender system serving ~20M users at ~200 req/s. Collaborative filtering + NLP-based content analysis.</div>
+      <div class="exp-role">Data and AI Engineer</div>
+      <div class="exp-desc">Built a Spark-based recommender system serving ~20M users.</div>
     </div>
+  </div>
+
+  <div class="section-header reveal" style="margin-top:3rem;">
+    <span class="section-num">—</span>
+    <h2 style="font-size:1.25rem;">Teaching Experience</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="exp-item reveal delay-1">
+    <div>
+      <div class="exp-date">Fall 2025</div>
+      <div class="exp-co">University of Calgary</div>
+    </div>
+    <div>
+      <div class="exp-role">Sessional Instructor, SENG 550 — Data Engineering</div>
+    </div>
+  </div>
+
+  <div class="exp-item reveal delay-2">
+    <div>
+      <div class="exp-date">Fall 2024</div>
+      <div class="exp-co">University of Calgary</div>
+    </div>
+    <div>
+      <div class="exp-role">Sessional Instructor, SENG 550 — Data Engineering</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="stack">
+  <div class="section-header reveal">
+    <span class="section-num">02</span>
+    <h2>Technical Stack</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="exp-item reveal delay-1">
+    <div><div class="exp-co">Data Engineering</div></div>
+    <div><div class="exp-desc">Snowflake, dbt, Apache Airflow, Apache Spark, AWS Glue, Redshift, PostgreSQL, ETL/ELT, Data Modeling, Data Warehousing, Dimensional Modeling, CDC, Data Pipelines, Data Governance, Slowly Changing Dimensions, Data Observability, Query Optimization, MongoDB, Elasticsearch</div></div>
+  </div>
+  <div class="exp-item reveal delay-2">
+    <div><div class="exp-co">ML/AI</div></div>
+    <div><div class="exp-desc">Python, PyTorch, Hugging Face, LLMs, NLP, Recommender Systems, scikit-learn, OpenAI API, MLflow, Pandas</div></div>
+  </div>
+  <div class="exp-item reveal delay-3">
+    <div><div class="exp-co">Cloud &amp; Infra</div></div>
+    <div><div class="exp-desc">AWS, S3, Lambda, EC2, RDS, AWS Glue, Datadog, ELK Stack</div></div>
+  </div>
+  <div class="exp-item reveal delay-4">
+    <div><div class="exp-co">AI Tools</div></div>
+    <div><div class="exp-desc">Claude Code, Cursor, ChatGPT</div></div>
+  </div>
+  <div class="exp-item reveal delay-5">
+    <div><div class="exp-co">Books I'm Reading</div></div>
+    <div><div class="exp-desc">Designing Data-Intensive Applications, Fundamentals of Data Engineering, AI Engineering (O'Reilly)</div></div>
   </div>
 </section>
 
 <section class="section" id="projects">
   <div class="section-header reveal">
-    <span class="section-num">02</span>
-    <h2>Projects</h2>
+    <span class="section-num">03</span>
+    <h2>AI Projects</h2>
     <div class="section-line"></div>
   </div>
   <div class="projects-grid">
     <div class="project-card reveal delay-1">
       <div class="project-num">01 —</div>
-      <h3>Personal Website</h3>
-      <p>This site, built with Claude Code + Next.js. Open source on GitHub.</p>
-    </div>
-    <div class="project-card reveal delay-2">
-      <div class="project-num">02 —</div>
-      <h3>NLP Research</h3>
-      <p>Automated Program Repair using LLMs. 20+ citations, ICSE 2024.</p>
-    </div>
-    <div class="project-card reveal delay-3">
-      <div class="project-num">03 —</div>
-      <h3>Recommender System</h3>
-      <p>End-to-end Spark pipeline for ~20M users. Collaborative filtering + NLP.</p>
-    </div>
-    <div class="project-card reveal delay-4">
-      <div class="project-num">04 —</div>
-      <h3>University Teaching</h3>
-      <p>SENG 550 at University of Calgary. Designed curriculum and assignments.</p>
+      <h3>This Website <span style="font-weight:400;font-size:0.85rem;">(In progress)</span></h3>
+      <p>Built entirely with Claude Code + Next.js. Open source — see how it was made.</p>
+      <p style="margin-top:0.75rem;"><a href="https://github.com/arminzir/personal-website" style="color:var(--accent);font-size:0.8rem;">View on GitHub →</a></p>
     </div>
   </div>
 </section>
 
-<section class="section" id="personal">
+<section class="section" id="publications">
   <div class="section-header reveal">
-    <span class="section-num">03</span>
-    <h2>Personal</h2>
+    <span class="section-num">04</span>
+    <h2>AI Publications</h2>
     <div class="section-line"></div>
   </div>
-  <div class="personal-grid">
-    <div class="personal-text reveal delay-1">
-      <p>Originally from Iran, I've been in Canada for 6 years — mostly Alberta, recently moved to Toronto. Trading mountain trails for city chaos. Still adjusting.</p>
-      <p>Outside of tech: I follow politics, economics, and the news for real. I enjoy reading, writing, and having actual conversations about what's going on in the world.</p>
-      <p>Mustang fan. Not someone who settles easily. Always looking for what comes next.</p>
+  <p class="reveal" style="font-size:0.875rem;color:var(--muted);margin-bottom:2rem;"><strong style="color:var(--text);">36 citations</strong> across 4 publications</p>
+
+  <div class="exp-item reveal delay-1">
+    <div>
+      <div class="exp-date">ACM TOSEM · ICSE 2024</div>
+      <div class="exp-co">28 citations</div>
     </div>
-    <div class="facts-box reveal delay-2">
-      <h3>Fun facts</h3>
-      <ul>
-        <li>Took a full month off in Iran last year. Complete disconnect. Highly recommend.</li>
-        <li>Senior data engineer who got fully hacked by a trojan. Very humbling experience.</li>
-        <li>I have a PhD in panicking — but if I say this time is different, it might be.</li>
-      </ul>
+    <div>
+      <div class="exp-role">Improving Automated Program Repair with Domain Adaptation</div>
+      <div class="exp-desc">Journal Paper · Conference Presentation — <a href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en" style="color:var(--accent);">Read →</a></div>
     </div>
+  </div>
+  <div class="exp-item reveal delay-2">
+    <div>
+      <div class="exp-date">arXiv · 2024</div>
+      <div class="exp-co">4 citations</div>
+    </div>
+    <div>
+      <div class="exp-role">Online and Offline Evaluations of Collaborative Filtering and Content Based Recommender Systems</div>
+      <div class="exp-desc">Preprint — <a href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en" style="color:var(--accent);">Read →</a></div>
+    </div>
+  </div>
+  <div class="exp-item reveal delay-3">
+    <div>
+      <div class="exp-date">U of Calgary · 2022</div>
+    </div>
+    <div>
+      <div class="exp-role">Domain Adaptation for Automated Program Repair</div>
+      <div class="exp-desc">Master's Thesis — <a href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en" style="color:var(--accent);">Read →</a></div>
+    </div>
+  </div>
+  <div class="exp-item reveal delay-4">
+    <div>
+      <div class="exp-date">arXiv · 2019</div>
+      <div class="exp-co">4 citations</div>
+    </div>
+    <div>
+      <div class="exp-role">Real-time Travel Time Estimation Using Matrix Factorization</div>
+      <div class="exp-desc">Preprint — <a href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en" style="color:var(--accent);">Read →</a></div>
+    </div>
+  </div>
+  <div class="contact-row reveal delay-5" style="margin-top:1.5rem;">
+    <a class="contact-card" href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">
+      <div class="contact-label">Scholar</div>
+      <div class="contact-value">View all on Google Scholar — 36+ citations</div>
+    </a>
   </div>
 </section>
 
 <section class="section" id="contact">
   <div class="section-header reveal">
-    <span class="section-num">04</span>
+    <span class="section-num">05</span>
     <h2>Get in touch</h2>
     <div class="section-line"></div>
   </div>
@@ -490,10 +552,6 @@
     <a class="contact-card reveal delay-2" href="https://ca.linkedin.com/in/arminzirak">
       <div class="contact-label">LinkedIn</div>
       <div class="contact-value">linkedin.com/in/arminzirak</div>
-    </a>
-    <a class="contact-card reveal delay-3" href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">
-      <div class="contact-label">Scholar</div>
-      <div class="contact-value">20+ citations · ICSE 2024</div>
     </a>
   </div>
 </section>

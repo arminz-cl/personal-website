@@ -48,22 +48,44 @@ Animations:
   - Cards: translateX(6px) slide on hover (experience), translateY(-4px) lift (projects)
   - Ambient: pulsing dot on location pill, color orbs in background
 
-Sections:
+Sections (final):
   - Nav: fixed, blurred, gradient logo
-  - Hero: centered, pill tag, big name, subline, CTA buttons, stats (5+ yrs / 20+ citations / 20M users)
-  - Experience: glass cards, two-column meta/description layout
-  - Projects: 2x2 glass card grid with colored tag labels
-  - Personal: glass main text + 3 fact cards
-  - Contact: 3 glass cards side by side
+  - Hero: centered, pill tag, big name, subline, CTA buttons, stats strip
+         Pill: "Data Engineer · Toronto, Canada"
+         Stats: 5+ Years DE | 2+ Years ML/AI | M.Sc. Software Eng.
+         Background: 5 fixed decorative icons (database, neural net, CN Tower, professor, terminal)
+  - Experience: glass cards per role + Teaching Experience subsection
+  - Technical Stack: Data Engineering, ML/AI, Cloud & Infra, AI Tools, Books I'm Reading
+  - AI Projects: glass grid (currently: This Website — In progress)
+  - AI Publications: 4 papers with citation counts, 36+ total, Scholar button
+  - Contact: Email + LinkedIn glass cards
 
-Content notes (agreed):
-  - Experience years: 5+ (as stated by Armin)
-  - Email: arminzirak2@gmail.com
-  - Minimal fixes applied to original text (typos/grammar only, no restructuring)
+Content finalized:
+  - Hero description: "Data engineer, ML/AI practitioner, and occasional university instructor."
+  - Experience: Instacart, Reach, TouchBistro, ML Developer (UofC), Yektanet
+  - Teaching: Fall 2025, Fall 2024 (SENG 550, University of Calgary)
+  - Publications: 4 papers (ACM TOSEM/ICSE 2024 — 28 citations, arXiv recommender 2024,
+    UofC thesis 2022, arXiv travel time 2019) — 36 total citations
+  - Email: arminzirak2@gmail.com | LinkedIn: ca.linkedin.com/in/arminzirak
+
+==============================
+STACK DECISION
+==============================
+
+Final decision: Plain HTML/CSS/JS — no framework needed.
+
+Rationale:
+  - Site is single-page; no routing or shared components needed
+  - The mockup already IS the site — clean, fast, zero dependencies
+  - Next.js/React would add complexity with no real benefit for this use case
+  - If site grows (multiple pages, shared nav/footer), reconsider at that point
+
+Deployment: GitHub Pages (static HTML, no build step)
+Repo: https://github.com/arminzir/personal-website
 
 ==============================
 NEXT STEPS
 ==============================
-  1. Scaffold Next.js + Tailwind project
-  2. Implement style 8 as the real site
-  3. Deploy to GitHub Pages via GitHub Actions
+  1. Add personal section (separate page or modal — deferred)
+  2. Wire up real links (course slides, paper URLs)
+  3. Add more AI projects as they are built

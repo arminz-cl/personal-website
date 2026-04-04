@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Armin Zirak — Style 5: Bento Grid</title>
+  <title>Armin Zirak — Data Engineer</title>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -308,8 +308,9 @@
   <div class="nav-logo">Armin Zirak</div>
   <div class="nav-links">
     <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#personal">Personal</a>
+    <a href="#stack">Stack</a>
+    <a href="#projects">AI Projects</a>
+    <a href="#publications">Publications</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -321,7 +322,7 @@
     <div class="card card-hero">
       <div class="hero-tag">Data Engineer · Toronto, Canada</div>
       <h1>Armin Zirak</h1>
-      <p>6+ years building data pipelines, warehouses, and distributed systems at scale. Background in ML/AI. Big believer in getting the fundamentals right.</p>
+      <p>Data engineer, ML/AI practitioner, and occasional university instructor. 5+ years in data engineering, with hands-on AI/ML experience and a master's in software engineering (ML focus).</p>
     </div>
 
     <!-- Status card -->
@@ -334,30 +335,32 @@
 
     <!-- Cert card -->
     <div class="card card-cert">
-      <div class="cert-icon">☁️</div>
+      <div class="cert-icon">🎓</div>
       <div>
-        <div class="cert-label">Certification</div>
-        <div class="cert-title">AWS Certified Data Engineer</div>
+        <div class="cert-label">Education</div>
+        <div class="cert-title">M.Sc. Software Engineering (ML focus)</div>
       </div>
     </div>
 
     <!-- Skills card -->
     <div class="card card-skills">
       <div class="card-accent" style="background: var(--blue);"></div>
-      <div class="card-title">Skills</div>
+      <div class="card-title">Technical Stack</div>
       <div class="skill-tags">
         <span class="skill-tag blue">Snowflake</span>
         <span class="skill-tag blue">dbt</span>
-        <span class="skill-tag blue">Airflow</span>
+        <span class="skill-tag blue">Apache Airflow</span>
+        <span class="skill-tag blue">Apache Spark</span>
         <span class="skill-tag green">Python</span>
-        <span class="skill-tag green">Spark</span>
-        <span class="skill-tag purple">Machine Learning</span>
-        <span class="skill-tag purple">NLP / LLMs</span>
+        <span class="skill-tag green">ETL / ELT</span>
+        <span class="skill-tag green">Data Modeling</span>
+        <span class="skill-tag purple">LLMs</span>
+        <span class="skill-tag purple">NLP</span>
+        <span class="skill-tag purple">PyTorch</span>
         <span class="skill-tag orange">AWS</span>
         <span class="skill-tag orange">Redshift</span>
         <span class="skill-tag blue">PostgreSQL</span>
-        <span class="skill-tag green">ETL / ELT</span>
-        <span class="skill-tag purple">Data Modeling</span>
+        <span class="skill-tag green">CDC</span>
       </div>
     </div>
 
@@ -367,11 +370,11 @@
       <div class="card-title">By the numbers</div>
       <div class="stat-list">
         <div class="stat-item">
-          <div class="stat-num" style="color:var(--purple)">6+</div>
+          <div class="stat-num" style="color:var(--purple)">5+</div>
           <div class="stat-label">Years in<br>data engineering</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num" style="color:var(--blue)">20+</div>
+          <div class="stat-num" style="color:var(--blue)">36+</div>
           <div class="stat-label">Research<br>citations</div>
         </div>
         <div class="stat-item">
@@ -389,31 +392,23 @@
         <div>
           <div class="exp-role">Data Engineer</div>
           <div class="exp-co">Instacart</div>
-          <div class="exp-desc">Catalog pipelines on Snowflake, dbt, Airflow. Data quality + SOX compliance.</div>
+          <div class="exp-desc">Building and maintaining catalog data pipelines. Snowflake, dbt, Airflow. SOX compliance.</div>
         </div>
-        <div class="exp-date">Jun 2025 – now</div>
+        <div class="exp-date">Jun 2025 – present</div>
       </div>
       <div class="exp-item">
         <div>
-          <div class="exp-role">Data (Analytics) Engineer</div>
+          <div class="exp-role">Analytics Engineer</div>
           <div class="exp-co">Reach</div>
-          <div class="exp-desc">Payments pipeline. CDC-based ELT migration across 120+ tables (Postgres → Snowflake).</div>
+          <div class="exp-desc">Owned the payments data pipeline end to end. Led a CDC-ELT migration across 120+ tables.</div>
         </div>
         <div class="exp-date">Feb 2024 – Jun 2025</div>
       </div>
       <div class="exp-item">
         <div>
-          <div class="exp-role">Sessional Instructor — Data Engineering</div>
-          <div class="exp-co">University of Calgary</div>
-          <div class="exp-desc">Taught SENG 550. Managed 4 TAs. Databases, Spark, ETL/ELT, distributed systems.</div>
-        </div>
-        <div class="exp-date">Sep – Dec 2024</div>
-      </div>
-      <div class="exp-item">
-        <div>
           <div class="exp-role">Data Engineer</div>
           <div class="exp-co">TouchBistro</div>
-          <div class="exp-desc">ETL migration to AWS Glue (Spark), Airflow, S3, Redshift. Star schema architecture.</div>
+          <div class="exp-desc">Migrated legacy ETL systems to AWS Glue, Airflow, and Redshift.</div>
         </div>
         <div class="exp-date">Mar 2023 – Feb 2024</div>
       </div>
@@ -421,69 +416,90 @@
         <div>
           <div class="exp-role">Machine Learning Developer (NLP/LLM)</div>
           <div class="exp-co">University of Calgary</div>
-          <div class="exp-desc">Automated Program Repair with GPT-4. 20+ citations. ICSE 2024.</div>
+          <div class="exp-desc">LLM research for Automated Program Repair using GPT-4. 36+ citations across 4 publications.</div>
         </div>
         <div class="exp-date">Jul 2020 – Sep 2022</div>
       </div>
       <div class="exp-item">
         <div>
-          <div class="exp-role">Data Scientist & Engineer</div>
+          <div class="exp-role">Data and AI Engineer</div>
           <div class="exp-co">Yektanet</div>
-          <div class="exp-desc">Spark recommender for ~20M users, ~200 req/s. Collaborative filtering + NLP.</div>
+          <div class="exp-desc">Built a Spark-based recommender system serving ~20M users.</div>
         </div>
         <div class="exp-date">Jan 2019 – Dec 2020</div>
       </div>
+      <div class="exp-item">
+        <div>
+          <div class="exp-role">Sessional Instructor, SENG 550 — Data Engineering</div>
+          <div class="exp-co">University of Calgary</div>
+          <div class="exp-desc">Taught Data Engineering. Databases, Spark, ETL/ELT, distributed systems.</div>
+        </div>
+        <div class="exp-date">Fall 2025 &amp; Fall 2024</div>
+      </div>
     </div>
 
-    <!-- Projects card -->
+    <!-- AI Projects card -->
     <div class="card card-projects" id="projects">
       <div class="card-accent" style="background: var(--green);"></div>
-      <div class="card-title">Projects</div>
+      <div class="card-title">AI Projects</div>
       <div class="proj-list">
         <div class="proj-item">
-          <div class="proj-icon blue">🌐</div>
+          <div class="proj-icon blue">💻</div>
           <div>
-            <div class="proj-name">Personal Website</div>
-            <div class="proj-desc">Built with Claude Code + Next.js. Open source on GitHub.</div>
+            <div class="proj-name">This Website <span style="font-weight:400;font-size:0.8rem;">(In progress)</span></div>
+            <div class="proj-desc">Built entirely with Claude Code + Next.js. Open source — see how it was made.</div>
+            <div style="margin-top:0.35rem;"><a href="https://github.com/arminzir/personal-website" style="font-size:0.78rem;color:var(--blue);">github.com/arminzir/personal-website →</a></div>
           </div>
         </div>
+      </div>
+      <div class="card-title" style="margin-top:1.5rem;">AI Publications</div>
+      <div class="proj-list">
         <div class="proj-item">
           <div class="proj-icon purple">📄</div>
           <div>
-            <div class="proj-name">NLP Research</div>
-            <div class="proj-desc">Automated Program Repair using LLMs. 20+ citations, ICSE 2024.</div>
+            <div class="proj-name">Improving Automated Program Repair with Domain Adaptation</div>
+            <div class="proj-desc">ACM TOSEM · ICSE 2024 — 28 citations</div>
           </div>
         </div>
         <div class="proj-item">
-          <div class="proj-icon green">🔁</div>
+          <div class="proj-icon green">📊</div>
           <div>
-            <div class="proj-name">Recommender System</div>
-            <div class="proj-desc">End-to-end Spark pipeline for ~20M users. Collaborative filtering + NLP.</div>
+            <div class="proj-name">Online and Offline Evaluations of Recommender Systems</div>
+            <div class="proj-desc">arXiv · 2024 — 4 citations</div>
           </div>
         </div>
         <div class="proj-item">
           <div class="proj-icon orange">🎓</div>
           <div>
-            <div class="proj-name">University Teaching</div>
-            <div class="proj-desc">SENG 550 at University of Calgary. Curriculum design, 4 TAs managed.</div>
+            <div class="proj-name">Domain Adaptation for Automated Program Repair</div>
+            <div class="proj-desc">Master's Thesis, U of Calgary · 2022</div>
+          </div>
+        </div>
+        <div class="proj-item">
+          <div class="proj-icon blue">🗺️</div>
+          <div>
+            <div class="proj-name">Real-time Travel Time Estimation Using Matrix Factorization</div>
+            <div class="proj-desc">arXiv · 2019 — 4 citations</div>
           </div>
         </div>
       </div>
+      <div id="publications" style="margin-top:0.75rem;"><a href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en" style="font-size:0.8rem;color:var(--blue);font-weight:600;">View all on Google Scholar — 36+ citations →</a></div>
     </div>
 
-    <!-- Personal card -->
-    <div class="card card-personal" id="personal">
-      <div class="card-accent" style="background: var(--pink);"></div>
-      <div class="card-title">Personal</div>
+    <!-- Stack card (reuse personal slot) -->
+    <div class="card card-personal" id="stack">
+      <div class="card-accent" style="background: var(--orange);"></div>
+      <div class="card-title">Full Stack</div>
       <div class="personal-text">
-        <p>Originally from Iran, 6 years in Canada — mostly Alberta, recently moved to Toronto. Trading mountain trails for city chaos. Still adjusting.</p>
-        <p>I follow politics, economics, and news for real. Reading, writing, real conversations about what's going on. Mustang fan. Not someone who settles.</p>
+        <p><strong>Data Eng:</strong> Snowflake, dbt, Airflow, Spark, AWS Glue, Redshift, PostgreSQL, ETL/ELT, Data Modeling, Data Warehousing, Dimensional Modeling, CDC, Data Pipelines, Data Governance, SCDs, Data Observability, Query Optimization, MongoDB, Elasticsearch</p>
+        <p><strong>ML/AI:</strong> Python, PyTorch, Hugging Face, LLMs, NLP, Recommender Systems, scikit-learn, OpenAI API, MLflow, Pandas</p>
+        <p><strong>Cloud:</strong> AWS, S3, Lambda, EC2, RDS, AWS Glue, Datadog, ELK Stack</p>
+        <p><strong>AI Tools:</strong> Claude Code, Cursor, ChatGPT</p>
       </div>
       <div class="fun-facts">
-        <span class="fact-chip">Full month off in Iran last year 🇮🇷</span>
-        <span class="fact-chip">Got hacked by a trojan once 😬</span>
-        <span class="fact-chip">PhD in panicking (unofficial)</span>
-        <span class="fact-chip">Shopping is my nightmare 🛒</span>
+        <span class="fact-chip">Designing Data-Intensive Applications</span>
+        <span class="fact-chip">Fundamentals of Data Engineering</span>
+        <span class="fact-chip">AI Engineering (O'Reilly)</span>
       </div>
     </div>
 
@@ -496,9 +512,6 @@
         </a>
         <a class="contact-pill" href="https://ca.linkedin.com/in/arminzirak">
           <span>💼</span> linkedin.com/in/arminzirak
-        </a>
-        <a class="contact-pill" href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">
-          <span>📚</span> Google Scholar
         </a>
       </div>
     </div>
