@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Armin Zirak — Style 1: Minimal</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #0f766e;
+      --tag-bg: #f3f4f6;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 0 2rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo { font-weight: 700; font-size: 0.95rem; letter-spacing: -0.02em; }
+
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .container { max-width: 720px; margin: 0 auto; padding: 0 2rem; }
+
+    section { padding: 5rem 0; border-bottom: 1px solid var(--border); }
+    #hero { padding-top: 9rem; }
+
+    .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      max-width: 560px;
+    }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+    .tag {
+      background: var(--tag-bg);
+      color: #374151;
+      padding: 0.3rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    /* Experience */
+    .exp-item {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0 1.5rem;
+      align-items: start;
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-role { font-weight: 600; font-size: 1rem; margin-bottom: 0.15rem; }
+    .exp-company { color: var(--muted); font-size: 0.875rem; margin-bottom: 0.6rem; }
+    .exp-desc { font-size: 0.875rem; color: #4b5563; }
+    .exp-date { font-size: 0.8rem; color: var(--muted); white-space: nowrap; padding-top: 0.25rem; }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .project-card { background: var(--bg); padding: 1.5rem; }
+    .project-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .project-card p { font-size: 0.85rem; color: var(--muted); }
+
+    /* Personal */
+    .personal-text p + p { margin-top: 0.9rem; }
+    .personal-text p { color: #374151; font-size: 0.975rem; }
+    .fun-box {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: var(--tag-bg);
+      border-radius: 8px;
+    }
+    .fun-box h3 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .fun-box li { font-size: 0.875rem; color: #374151; margin-left: 1.2rem; margin-bottom: 0.5rem; }
+
+    /* Contact */
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.925rem;
+      transition: color 0.15s;
+    }
+    .contact-link:last-child { border-bottom: none; }
+    .contact-link:hover { color: var(--accent); }
+    .contact-label {
+      font-weight: 600;
+      min-width: 72px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 3rem 0;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Armin Zirak</div>
+  <div class="nav-links">
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#personal">Personal</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <section id="hero">
+    <div class="eyebrow">Data Engineer · Toronto, Canada</div>
+    <h1>Armin Zirak</h1>
+    <p class="hero-sub">6+ years building data pipelines, warehouses, and distributed systems at scale. Background in ML/AI. AWS certified. Big believer in strong fundamentals.</p>
+    <div class="tags">
+      <span class="tag">Data Engineering</span>
+      <span class="tag">Snowflake + dbt</span>
+      <span class="tag">Apache Airflow</span>
+      <span class="tag">Python</span>
+      <span class="tag">Machine Learning</span>
+      <span class="tag">AWS Certified</span>
+      <span class="tag">Spark</span>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-label">Experience</div>
+    <div class="exp-item">
+      <div>
+        <div class="exp-role">Data Engineer</div>
+        <div class="exp-company">Instacart</div>
+        <div class="exp-desc">Building scalable catalog data pipelines on Snowflake, dbt, and Airflow. Focus on data quality, SOX compliance, and reliability.</div>
+      </div>
+      <div class="exp-date">Jun 2025 – Present</div>
+    </div>
+    <div class="exp-item">
+      <div>
+        <div class="exp-role">Data (Analytics) Engineer</div>
+        <div class="exp-company">Reach</div>
+        <div class="exp-desc">Led payments pipeline implementation. Migrated a CDC-based ELT system across 120+ PostgreSQL/Snowflake tables.</div>
+      </div>
+      <div class="exp-date">Feb 2024 – Jun 2025</div>
+    </div>
+    <div class="exp-item">
+      <div>
+        <div class="exp-role">Sessional Instructor — Data Engineering</div>
+        <div class="exp-company">University of Calgary</div>
+        <div class="exp-desc">Taught SENG 550 to senior undergrad students (databases, Spark, ETL/ELT, distributed systems). Managed 4 TAs.</div>
+      </div>
+      <div class="exp-date">Sep – Dec 2024</div>
+    </div>
+    <div class="exp-item">
+      <div>
+        <div class="exp-role">Data Engineer</div>
+        <div class="exp-company">TouchBistro</div>
+        <div class="exp-desc">Migrated restaurant ETL pipelines to AWS Glue (Spark), Airflow, S3, and Redshift, enabling parallel batch processing.</div>
+      </div>
+      <div class="exp-date">Mar 2023 – Feb 2024</div>
+    </div>
+    <div class="exp-item">
+      <div>
+        <div class="exp-role">Machine Learning Developer (NLP/LLM)</div>
+        <div class="exp-company">University of Calgary</div>
+        <div class="exp-desc">Researched LLMs for Automated Program Repair. 20+ citations, paper at ICSE 2024.</div>
+      </div>
+      <div class="exp-date">Jul 2020 – Sep 2022</div>
+    </div>
+    <div class="exp-item">
+      <div>
+        <div class="exp-role">Data Scientist & Engineer</div>
+        <div class="exp-company">Yektanet</div>
+        <div class="exp-desc">Built a Spark-based recommender system serving ~20M users at ~200 req/s. Collaborative filtering + NLP-based analysis.</div>
+      </div>
+      <div class="exp-date">Jan 2019 – Dec 2020</div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-label">Projects</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>Personal Website</h3>
+        <p>This site, built with Claude Code + Next.js. Open source on GitHub.</p>
+      </div>
+      <div class="project-card">
+        <h3>NLP Research</h3>
+        <p>Automated Program Repair using LLMs. 20+ citations, ICSE 2024.</p>
+      </div>
+      <div class="project-card">
+        <h3>Recommender System</h3>
+        <p>End-to-end Spark system for ~20M users. Collaborative filtering + NLP.</p>
+      </div>
+      <div class="project-card">
+        <h3>University Teaching</h3>
+        <p>SENG 550 at University of Calgary. Designed curriculum and assignments.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="personal">
+    <div class="section-label">Personal</div>
+    <div class="personal-text">
+      <p>Originally from Iran, I've been in Canada for 6 years — mostly Alberta, recently moved to Toronto. Trading mountain trails for city chaos. Still adjusting.</p>
+      <p>Outside of tech, I follow politics, economics, and the news — not just casually. I enjoy reading, writing, and having real conversations about what's going on in the world.</p>
+      <p>I'm a Mustang fan still waiting for the right moment. Big believer in working hard, building a good life, and exploring what comes next. Not someone who settles easily.</p>
+    </div>
+    <div class="fun-box">
+      <h3>Fun facts</h3>
+      <ul>
+        <li>Took a full month off in Iran last year. Complete disconnect. 10/10 would recommend.</li>
+        <li>Senior data engineer who once got fully hacked by a trojan. Very humbling.</li>
+        <li>I have a PhD in panicking. But if I say it's different this time — it might actually be.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-label">Get in touch</div>
+    <a class="contact-link" href="mailto:arminzirak2@gmail.com">
+      <span class="contact-label">Email</span>arminzirak2@gmail.com
+    </a>
+    <a class="contact-link" href="https://ca.linkedin.com/in/arminzirak">
+      <span class="contact-label">LinkedIn</span>linkedin.com/in/arminzirak
+    </a>
+    <a class="contact-link" href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">
+      <span class="contact-label">Scholar</span>Google Scholar — 20+ citations
+    </a>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">Built with Claude Code · Open source on GitHub</div>
+</footer>
+
+</body>
+</html>

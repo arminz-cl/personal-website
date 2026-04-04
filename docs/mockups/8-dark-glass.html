@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Armin Zirak — Style 8: Dark Glassmorphism + Stagger</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --bg: #04050a;
+      --text: #f1f5f9;
+      --muted: #64748b;
+      --border: rgba(255,255,255,0.08);
+      --glass: rgba(255,255,255,0.04);
+      --glass-border: rgba(255,255,255,0.1);
+      --accent: #a78bfa;    /* violet */
+      --accent2: #34d399;   /* emerald */
+      --accent3: #60a5fa;   /* blue */
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── Background orbs ── */
+    .bg-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb-1 {
+      width: 600px; height: 600px;
+      background: rgba(167,139,250,0.12);
+      top: -200px; right: -200px;
+    }
+    .orb-2 {
+      width: 500px; height: 500px;
+      background: rgba(52,211,153,0.08);
+      bottom: 20%; left: -150px;
+    }
+    .orb-3 {
+      width: 400px; height: 400px;
+      background: rgba(96,165,250,0.1);
+      bottom: -100px; right: 30%;
+    }
+
+    /* Everything above background */
+    nav, main { position: relative; z-index: 1; }
+
+    /* ── Reveal animations ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.9s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.08s; }
+    .d2 { transition-delay: 0.16s; }
+    .d3 { transition-delay: 0.24s; }
+    .d4 { transition-delay: 0.32s; }
+    .d5 { transition-delay: 0.40s; }
+    .d6 { transition-delay: 0.48s; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(4,5,10,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 0 3rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-weight: 800;
+      font-size: 0.95rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-links { display: flex; gap: 0.25rem; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.4rem 0.9rem;
+      border-radius: 8px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-links a:hover {
+      color: var(--text);
+      background: var(--glass);
+    }
+
+    /* ── Glass card mixin ── */
+    .glass {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+    }
+
+    /* ── Hero ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 2rem;
+      padding-top: 60px;
+      flex-direction: column;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(167,139,250,0.1);
+      border: 1px solid rgba(167,139,250,0.25);
+      color: var(--accent);
+      padding: 0.35rem 1rem;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.1s forwards;
+    }
+    .pill-dot {
+      width: 6px; height: 6px;
+      background: var(--accent2);
+      border-radius: 50%;
+      animation: blink 2s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      line-height: 0.95;
+      margin-bottom: 1.75rem;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.25s forwards;
+    }
+    .name-first { display: block; color: var(--text); }
+    .name-last {
+      display: block;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent3) 50%, var(--accent2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 540px;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.4s forwards;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.55s forwards;
+      margin-bottom: 4rem;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.925rem;
+      text-decoration: none;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+    .btn-ghost {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      color: var(--text);
+      padding: 0.8rem 2rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.925rem;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .btn-ghost:hover { border-color: rgba(167,139,250,0.4); transform: translateY(-2px); }
+
+    /* Hero stats strip */
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.7s forwards;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat .num {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-stat .lbl { font-size: 0.8rem; color: var(--muted); margin-top: 0.1rem; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Main content ── */
+    main { max-width: 1100px; margin: 0 auto; padding: 0 3rem 6rem; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    h2 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 3rem;
+    }
+
+    /* ── Experience glass cards ── */
+    .exp-list { display: flex; flex-direction: column; gap: 1rem; }
+    .exp-card {
+      padding: 1.75rem 2rem;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0 2rem;
+      align-items: start;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .exp-card:hover { transform: translateX(6px); border-color: rgba(167,139,250,0.3); }
+    .ec-date { font-size: 0.8rem; color: var(--muted); font-family: monospace; margin-bottom: 0.3rem; }
+    .ec-co { font-size: 0.875rem; font-weight: 600; color: var(--accent); }
+    .ec-role { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .ec-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── Projects ── */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+    .proj-card {
+      padding: 1.75rem;
+      transition: transform 0.25s, border-color 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .proj-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(167,139,250,0.05), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .proj-card:hover { transform: translateY(-4px); border-color: rgba(167,139,250,0.3); }
+    .proj-card:hover::after { opacity: 1; }
+    .proj-tag {
+      display: inline-block;
+      background: rgba(167,139,250,0.12);
+      color: var(--accent);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.75rem;
+    }
+    .proj-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .proj-card p { font-size: 0.875rem; color: var(--muted); }
+
+    /* ── Personal ── */
+    .personal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .personal-main {
+      padding: 2rem;
+    }
+    .personal-main p { font-size: 0.975rem; color: #94a3b8; line-height: 1.8; margin-bottom: 1rem; }
+    .facts-col { display: flex; flex-direction: column; gap: 1rem; }
+    .fact-glass {
+      padding: 1.25rem 1.5rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .fact-glass span { color: var(--accent2); font-weight: 600; }
+
+    /* ── Contact ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .contact-glass {
+      padding: 1.75rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .contact-glass:hover { transform: translateY(-3px); border-color: rgba(167,139,250,0.3); }
+    .contact-type {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .contact-val { font-size: 0.875rem; color: var(--muted); }
+
+    footer {
+      text-align: center;
+      padding: 3rem 0 1rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .section-block { margin-bottom: 6rem; }
+  </style>
+</head>
+<body>
+
+<!-- Background orbs -->
+<div class="bg-orb orb-1"></div>
+<div class="bg-orb orb-2"></div>
+<div class="bg-orb orb-3"></div>
+
+<nav>
+  <div class="nav-logo">Armin Zirak</div>
+  <div class="nav-links">
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#personal">Personal</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section id="hero">
+  <div class="hero-pill">
+    <div class="pill-dot"></div>
+    Data Engineer · Toronto, Canada
+  </div>
+  <h1>
+    <span class="name-first">Armin</span>
+    <span class="name-last">Zirak.</span>
+  </h1>
+  <p class="hero-sub">5+ years building data pipelines, warehouses, and distributed systems. Background in ML/AI. AWS Certified. Big believer in strong fundamentals.</p>
+  <div class="hero-btns">
+    <a class="btn-primary" href="#experience">See my work</a>
+    <a class="btn-ghost" href="#contact">Get in touch</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="num">5+</div>
+      <div class="lbl">Years DE</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">20+</div>
+      <div class="lbl">Citations</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">20M</div>
+      <div class="lbl">Users served</div>
+    </div>
+  </div>
+</section>
+
+<main>
+
+  <!-- Experience -->
+  <div class="section-block" id="experience">
+    <div class="reveal">
+      <div class="section-label">Career</div>
+      <h2>Experience</h2>
+    </div>
+    <div class="exp-list">
+      <div class="exp-card glass reveal d1">
+        <div>
+          <div class="ec-date">Jun 2025 – Present</div>
+          <div class="ec-co">Instacart</div>
+        </div>
+        <div>
+          <div class="ec-role">Data Engineer</div>
+          <div class="ec-desc">Catalog data pipelines on Snowflake, dbt, Airflow. Data quality, SOX compliance, and reliability at scale.</div>
+        </div>
+      </div>
+      <div class="exp-card glass reveal d2">
+        <div>
+          <div class="ec-date">Feb 2024 – Jun 2025</div>
+          <div class="ec-co">Reach</div>
+        </div>
+        <div>
+          <div class="ec-role">Data (Analytics) Engineer</div>
+          <div class="ec-desc">Led payments pipeline. Migrated CDC-based ELT across 120+ PostgreSQL/Snowflake tables.</div>
+        </div>
+      </div>
+      <div class="exp-card glass reveal d3">
+        <div>
+          <div class="ec-date">Sep – Dec 2024</div>
+          <div class="ec-co">University of Calgary</div>
+        </div>
+        <div>
+          <div class="ec-role">Sessional Instructor — Data Engineering</div>
+          <div class="ec-desc">Taught SENG 550. Databases, Spark, ETL/ELT, distributed systems. Managed 4 TAs.</div>
+        </div>
+      </div>
+      <div class="exp-card glass reveal d4">
+        <div>
+          <div class="ec-date">Mar 2023 – Feb 2024</div>
+          <div class="ec-co">TouchBistro</div>
+        </div>
+        <div>
+          <div class="ec-role">Data Engineer</div>
+          <div class="ec-desc">ETL migration to AWS Glue (Spark), Airflow, S3, Redshift. Star schema architecture.</div>
+        </div>
+      </div>
+      <div class="exp-card glass reveal d5">
+        <div>
+          <div class="ec-date">Jul 2020 – Sep 2022</div>
+          <div class="ec-co">University of Calgary</div>
+        </div>
+        <div>
+          <div class="ec-role">Machine Learning Developer (NLP/LLM)</div>
+          <div class="ec-desc">LLM research for Automated Program Repair using GPT-4. 20+ citations, ICSE 2024.</div>
+        </div>
+      </div>
+      <div class="exp-card glass reveal d6">
+        <div>
+          <div class="ec-date">Jan 2019 – Dec 2020</div>
+          <div class="ec-co">Yektanet</div>
+        </div>
+        <div>
+          <div class="ec-role">Data Scientist & Engineer</div>
+          <div class="ec-desc">Spark-based recommender for ~20M users at ~200 req/s. Collaborative filtering + NLP.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Projects -->
+  <div class="section-block" id="projects">
+    <div class="reveal">
+      <div class="section-label">Work</div>
+      <h2>Projects</h2>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card glass reveal d1">
+        <div class="proj-tag">Open Source</div>
+        <h3>Personal Website</h3>
+        <p>Built with Claude Code + Next.js. Open source on GitHub.</p>
+      </div>
+      <div class="proj-card glass reveal d2">
+        <div class="proj-tag">Research</div>
+        <h3>NLP / LLM Research</h3>
+        <p>Automated Program Repair using LLMs. 20+ citations, ICSE 2024.</p>
+      </div>
+      <div class="proj-card glass reveal d3">
+        <div class="proj-tag">ML System</div>
+        <h3>Recommender System</h3>
+        <p>End-to-end Spark pipeline for ~20M users. Collaborative filtering + NLP.</p>
+      </div>
+      <div class="proj-card glass reveal d4">
+        <div class="proj-tag">Teaching</div>
+        <h3>University Course</h3>
+        <p>SENG 550 curriculum at University of Calgary. From SQL to distributed systems.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Personal -->
+  <div class="section-block" id="personal">
+    <div class="reveal">
+      <div class="section-label">About me</div>
+      <h2>Personal</h2>
+    </div>
+    <div class="personal-grid">
+      <div class="personal-main glass reveal d1">
+        <p>Originally from Iran, 6 years in Canada — mostly Alberta, recently moved to Toronto. Trading mountain trails for city chaos. Still adjusting.</p>
+        <p>Outside of tech: I follow politics, economics, and news seriously. I read, write, and enjoy real conversations about what's happening in the world.</p>
+        <p>Mustang fan. Not someone who settles. Always looking for what comes next.</p>
+      </div>
+      <div class="facts-col">
+        <div class="fact-glass glass reveal d2">
+          <span>Full month in Iran</span> last year — completely off the grid. Best break I've had.
+        </div>
+        <div class="fact-glass glass reveal d3">
+          <span>Senior DE, once hacked</span> by a trojan. Lost everything. Very humbling for someone in tech.
+        </div>
+        <div class="fact-glass glass reveal d4">
+          <span>PhD in panicking</span> (unofficial). But if I say this time is different, it might actually be.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="section-block" id="contact">
+    <div class="reveal">
+      <div class="section-label">Contact</div>
+      <h2>Get in touch</h2>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-glass glass reveal d1" href="mailto:arminzirak2@gmail.com">
+        <div class="contact-type">Email</div>
+        <div class="contact-val">arminzirak2@gmail.com</div>
+      </a>
+      <a class="contact-glass glass reveal d2" href="https://ca.linkedin.com/in/arminzirak">
+        <div class="contact-type">LinkedIn</div>
+        <div class="contact-val">linkedin.com/in/arminzirak</div>
+      </a>
+      <a class="contact-glass glass reveal d3" href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">
+        <div class="contact-type">Scholar</div>
+        <div class="contact-val">20+ citations · ICSE 2024</div>
+      </a>
+    </div>
+  </div>
+
+  <footer>Built with Claude Code · Open source on GitHub</footer>
+
+</main>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

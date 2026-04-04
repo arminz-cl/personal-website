@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Armin Zirak — Style 5: Bento Grid</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #f0f2f5;
+      --card: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --blue: #3b82f6;
+      --purple: #8b5cf6;
+      --green: #10b981;
+      --orange: #f59e0b;
+      --pink: #ec4899;
+      --radius: 16px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* Top nav bar */
+    nav {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 0 2.5rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo { font-weight: 800; font-size: 1rem; letter-spacing: -0.02em; }
+    .nav-links { display: flex; gap: 0.25rem; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.35rem 0.8rem;
+      border-radius: 8px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-links a:hover { background: #f3f4f6; color: var(--text); }
+
+    /* Page container */
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem;
+    }
+
+    /* Bento grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: minmax(60px, auto);
+      gap: 1.25rem;
+    }
+
+    /* Card base */
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      position: relative;
+    }
+    .card-accent {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+    }
+
+    /* Hero card — spans wide */
+    .card-hero {
+      grid-column: span 8;
+      grid-row: span 3;
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2.5rem;
+      min-height: 280px;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.9);
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+    .card-hero h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      margin-bottom: 1rem;
+    }
+    .card-hero p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 480px;
+      line-height: 1.65;
+    }
+
+    /* Status card */
+    .card-status {
+      grid-column: span 4;
+      grid-row: span 1;
+    }
+    .status-dot {
+      width: 10px; height: 10px;
+      background: var(--green);
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 0.5rem;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .status-text { font-size: 0.875rem; color: var(--muted); }
+
+    /* Skills card */
+    .card-skills {
+      grid-column: span 4;
+      grid-row: span 2;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .skill-tag {
+      padding: 0.3rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .skill-tag.blue { background: #eff6ff; color: var(--blue); }
+    .skill-tag.purple { background: #f5f3ff; color: var(--purple); }
+    .skill-tag.green { background: #ecfdf5; color: var(--green); }
+    .skill-tag.orange { background: #fffbeb; color: var(--orange); }
+
+    /* Card title */
+    .card-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    /* Experience card */
+    .card-exp {
+      grid-column: span 8;
+      grid-row: span 4;
+    }
+    .exp-item {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0 1rem;
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-role { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.1rem; }
+    .exp-co { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.3rem; }
+    .exp-desc { font-size: 0.825rem; color: #4b5563; }
+    .exp-date { font-size: 0.75rem; color: var(--muted); white-space: nowrap; padding-top: 0.2rem; }
+
+    /* Stats card */
+    .card-stats {
+      grid-column: span 4;
+      grid-row: span 2;
+    }
+    .stat-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; }
+    .stat-item { display: flex; align-items: center; gap: 1rem; }
+    .stat-num {
+      font-size: 1.75rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      min-width: 56px;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--muted); line-height: 1.3; }
+
+    /* Cert card */
+    .card-cert {
+      grid-column: span 4;
+      grid-row: span 1;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .cert-icon {
+      width: 40px; height: 40px;
+      background: #fffbeb;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .cert-label { font-size: 0.75rem; color: var(--muted); }
+    .cert-title { font-weight: 700; font-size: 0.9rem; }
+
+    /* Projects card */
+    .card-projects {
+      grid-column: span 6;
+      grid-row: span 3;
+    }
+    .proj-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem; }
+    .proj-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.875rem;
+      padding: 0.75rem;
+      border-radius: 10px;
+      transition: background 0.15s;
+    }
+    .proj-item:hover { background: #f9fafb; }
+    .proj-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .proj-icon.blue { background: #eff6ff; }
+    .proj-icon.purple { background: #f5f3ff; }
+    .proj-icon.green { background: #ecfdf5; }
+    .proj-icon.orange { background: #fffbeb; }
+    .proj-name { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.1rem; }
+    .proj-desc { font-size: 0.8rem; color: var(--muted); }
+
+    /* Personal card */
+    .card-personal {
+      grid-column: span 6;
+      grid-row: span 3;
+    }
+    .personal-text p { font-size: 0.9rem; color: #374151; line-height: 1.7; margin-bottom: 0.8rem; }
+    .fun-facts { margin-top: 1rem; }
+    .fact-chip {
+      display: inline-block;
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0.3rem 0.7rem;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      margin: 0.2rem;
+    }
+
+    /* Contact card */
+    .card-contact {
+      grid-column: span 12;
+      grid-row: span 1;
+    }
+    .contact-row { display: flex; gap: 1rem; margin-top: 0.5rem; }
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.25rem;
+      border-radius: 100px;
+      border: 1.5px solid var(--border);
+      font-size: 0.875rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .contact-pill:hover { border-color: var(--blue); background: #eff6ff; color: var(--blue); }
+    .contact-pill span { font-size: 1rem; }
+
+    /* Footer note */
+    .page-footer {
+      text-align: center;
+      padding: 2rem 0 0;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Armin Zirak</div>
+  <div class="nav-links">
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#personal">Personal</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="grid">
+
+    <!-- Hero card -->
+    <div class="card card-hero">
+      <div class="hero-tag">Data Engineer · Toronto, Canada</div>
+      <h1>Armin Zirak</h1>
+      <p>6+ years building data pipelines, warehouses, and distributed systems at scale. Background in ML/AI. Big believer in getting the fundamentals right.</p>
+    </div>
+
+    <!-- Status card -->
+    <div class="card card-status">
+      <div style="font-size:0.8rem; margin-bottom:0.5rem;">
+        <span class="status-dot"></span><strong>At Instacart</strong>
+      </div>
+      <div class="status-text">Data Engineer · Jun 2025 – Present</div>
+    </div>
+
+    <!-- Cert card -->
+    <div class="card card-cert">
+      <div class="cert-icon">☁️</div>
+      <div>
+        <div class="cert-label">Certification</div>
+        <div class="cert-title">AWS Certified Data Engineer</div>
+      </div>
+    </div>
+
+    <!-- Skills card -->
+    <div class="card card-skills">
+      <div class="card-accent" style="background: var(--blue);"></div>
+      <div class="card-title">Skills</div>
+      <div class="skill-tags">
+        <span class="skill-tag blue">Snowflake</span>
+        <span class="skill-tag blue">dbt</span>
+        <span class="skill-tag blue">Airflow</span>
+        <span class="skill-tag green">Python</span>
+        <span class="skill-tag green">Spark</span>
+        <span class="skill-tag purple">Machine Learning</span>
+        <span class="skill-tag purple">NLP / LLMs</span>
+        <span class="skill-tag orange">AWS</span>
+        <span class="skill-tag orange">Redshift</span>
+        <span class="skill-tag blue">PostgreSQL</span>
+        <span class="skill-tag green">ETL / ELT</span>
+        <span class="skill-tag purple">Data Modeling</span>
+      </div>
+    </div>
+
+    <!-- Stats card -->
+    <div class="card card-stats" id="experience">
+      <div class="card-accent" style="background: var(--purple);"></div>
+      <div class="card-title">By the numbers</div>
+      <div class="stat-list">
+        <div class="stat-item">
+          <div class="stat-num" style="color:var(--purple)">6+</div>
+          <div class="stat-label">Years in<br>data engineering</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" style="color:var(--blue)">20+</div>
+          <div class="stat-label">Research<br>citations</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" style="color:var(--green)">20M</div>
+          <div class="stat-label">Users served by<br>recommender system</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experience card -->
+    <div class="card card-exp">
+      <div class="card-accent" style="background: linear-gradient(90deg, var(--blue), var(--purple));"></div>
+      <div class="card-title">Experience</div>
+      <div class="exp-item">
+        <div>
+          <div class="exp-role">Data Engineer</div>
+          <div class="exp-co">Instacart</div>
+          <div class="exp-desc">Catalog pipelines on Snowflake, dbt, Airflow. Data quality + SOX compliance.</div>
+        </div>
+        <div class="exp-date">Jun 2025 – now</div>
+      </div>
+      <div class="exp-item">
+        <div>
+          <div class="exp-role">Data (Analytics) Engineer</div>
+          <div class="exp-co">Reach</div>
+          <div class="exp-desc">Payments pipeline. CDC-based ELT migration across 120+ tables (Postgres → Snowflake).</div>
+        </div>
+        <div class="exp-date">Feb 2024 – Jun 2025</div>
+      </div>
+      <div class="exp-item">
+        <div>
+          <div class="exp-role">Sessional Instructor — Data Engineering</div>
+          <div class="exp-co">University of Calgary</div>
+          <div class="exp-desc">Taught SENG 550. Managed 4 TAs. Databases, Spark, ETL/ELT, distributed systems.</div>
+        </div>
+        <div class="exp-date">Sep – Dec 2024</div>
+      </div>
+      <div class="exp-item">
+        <div>
+          <div class="exp-role">Data Engineer</div>
+          <div class="exp-co">TouchBistro</div>
+          <div class="exp-desc">ETL migration to AWS Glue (Spark), Airflow, S3, Redshift. Star schema architecture.</div>
+        </div>
+        <div class="exp-date">Mar 2023 – Feb 2024</div>
+      </div>
+      <div class="exp-item">
+        <div>
+          <div class="exp-role">Machine Learning Developer (NLP/LLM)</div>
+          <div class="exp-co">University of Calgary</div>
+          <div class="exp-desc">Automated Program Repair with GPT-4. 20+ citations. ICSE 2024.</div>
+        </div>
+        <div class="exp-date">Jul 2020 – Sep 2022</div>
+      </div>
+      <div class="exp-item">
+        <div>
+          <div class="exp-role">Data Scientist & Engineer</div>
+          <div class="exp-co">Yektanet</div>
+          <div class="exp-desc">Spark recommender for ~20M users, ~200 req/s. Collaborative filtering + NLP.</div>
+        </div>
+        <div class="exp-date">Jan 2019 – Dec 2020</div>
+      </div>
+    </div>
+
+    <!-- Projects card -->
+    <div class="card card-projects" id="projects">
+      <div class="card-accent" style="background: var(--green);"></div>
+      <div class="card-title">Projects</div>
+      <div class="proj-list">
+        <div class="proj-item">
+          <div class="proj-icon blue">🌐</div>
+          <div>
+            <div class="proj-name">Personal Website</div>
+            <div class="proj-desc">Built with Claude Code + Next.js. Open source on GitHub.</div>
+          </div>
+        </div>
+        <div class="proj-item">
+          <div class="proj-icon purple">📄</div>
+          <div>
+            <div class="proj-name">NLP Research</div>
+            <div class="proj-desc">Automated Program Repair using LLMs. 20+ citations, ICSE 2024.</div>
+          </div>
+        </div>
+        <div class="proj-item">
+          <div class="proj-icon green">🔁</div>
+          <div>
+            <div class="proj-name">Recommender System</div>
+            <div class="proj-desc">End-to-end Spark pipeline for ~20M users. Collaborative filtering + NLP.</div>
+          </div>
+        </div>
+        <div class="proj-item">
+          <div class="proj-icon orange">🎓</div>
+          <div>
+            <div class="proj-name">University Teaching</div>
+            <div class="proj-desc">SENG 550 at University of Calgary. Curriculum design, 4 TAs managed.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Personal card -->
+    <div class="card card-personal" id="personal">
+      <div class="card-accent" style="background: var(--pink);"></div>
+      <div class="card-title">Personal</div>
+      <div class="personal-text">
+        <p>Originally from Iran, 6 years in Canada — mostly Alberta, recently moved to Toronto. Trading mountain trails for city chaos. Still adjusting.</p>
+        <p>I follow politics, economics, and news for real. Reading, writing, real conversations about what's going on. Mustang fan. Not someone who settles.</p>
+      </div>
+      <div class="fun-facts">
+        <span class="fact-chip">Full month off in Iran last year 🇮🇷</span>
+        <span class="fact-chip">Got hacked by a trojan once 😬</span>
+        <span class="fact-chip">PhD in panicking (unofficial)</span>
+        <span class="fact-chip">Shopping is my nightmare 🛒</span>
+      </div>
+    </div>
+
+    <!-- Contact card -->
+    <div class="card card-contact" id="contact">
+      <div class="card-title">Get in touch</div>
+      <div class="contact-row">
+        <a class="contact-pill" href="mailto:arminzirak2@gmail.com">
+          <span>✉️</span> arminzirak2@gmail.com
+        </a>
+        <a class="contact-pill" href="https://ca.linkedin.com/in/arminzirak">
+          <span>💼</span> linkedin.com/in/arminzirak
+        </a>
+        <a class="contact-pill" href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">
+          <span>📚</span> Google Scholar
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-footer">Built with Claude Code · Open source on GitHub</div>
+</div>
+
+</body>
+</html>

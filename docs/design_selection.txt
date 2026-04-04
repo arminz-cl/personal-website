@@ -1,0 +1,69 @@
+==============================
+DESIGN SELECTION — Armin Zirak Personal Website
+==============================
+Date: 2026-04-03
+FINAL DECISION: Style 8 — Dark Glassmorphism + Stagger
+File: mockups/8-dark-glass.html
+
+==============================
+SELECTION PROCESS
+==============================
+
+Round 1 — 5 options presented:
+  1. Minimal / Clean         → white, teal accent, narrow column, quiet
+  2. Bold / Dark             → near-black, amber accent, big typography, numbered sections
+  3. Smooth Scroll SPA       → light bg, blue accent, timeline, scroll-down arrow
+  4. Terminal / Dev          → monospace, green text, CLI commands as navigation
+  5. Bento Grid (Cards)      → card-based grid, colorful, dashboard-style
+
+Feedback: Style 2 (Bold Dark) was the favourite, but wanted more interactivity —
+specifically scroll-triggered animations where elements reveal on scroll.
+
+Round 2 — 3 scroll-animation variants presented:
+  6. Bold Dark + Fade-Up Reveal   → direct evolution of style 2, elements fade up on scroll
+  7. Dark + Side Slide            → navy/blue accent, content slides in from alternating sides
+  8. Dark Glassmorphism + Stagger → black bg, color orbs, frosted glass cards, stagger reveal
+
+Final choice: Style 8
+
+==============================
+CHOSEN DESIGN — Style 8 Details
+==============================
+
+Visual identity:
+  - Near-black background (#04050a)
+  - Three ambient color orbs (violet, emerald, blue) blurred in background
+  - Frosted glass cards (backdrop-filter: blur + semi-transparent border)
+  - Gradient accent: violet (#a78bfa) → blue (#60a5fa) → emerald (#34d399)
+
+Typography & layout:
+  - System fonts (-apple-system stack)
+  - Hero: large centered name, gradient on last name, stats strip below CTA
+  - Max-width 1100px, single column flow
+
+Animations:
+  - Hero: load-in animations (fade up, staggered delays)
+  - Sections: Intersection Observer triggers fade-up reveal on scroll
+  - Each item within a section staggers in (0.08s delay per item)
+  - Cards: translateX(6px) slide on hover (experience), translateY(-4px) lift (projects)
+  - Ambient: pulsing dot on location pill, color orbs in background
+
+Sections:
+  - Nav: fixed, blurred, gradient logo
+  - Hero: centered, pill tag, big name, subline, CTA buttons, stats (5+ yrs / 20+ citations / 20M users)
+  - Experience: glass cards, two-column meta/description layout
+  - Projects: 2x2 glass card grid with colored tag labels
+  - Personal: glass main text + 3 fact cards
+  - Contact: 3 glass cards side by side
+
+Content notes (agreed):
+  - Experience years: 5+ (as stated by Armin)
+  - Email: arminzirak2@gmail.com
+  - Minimal fixes applied to original text (typos/grammar only, no restructuring)
+
+==============================
+NEXT STEPS
+==============================
+  1. Scaffold Next.js + Tailwind project
+  2. Implement style 8 as the real site
+  3. Deploy to GitHub Pages via GitHub Actions

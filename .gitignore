@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Node / Next.js (for when we scaffold the site)
+node_modules/
+.next/
+out/
+.env
+.env.local
+.env*.local
+
+# Editor
+.vscode/
+.idea/
+
+# Raw personal files (not for version control)
+raw/
+
+# Misc
+*.log

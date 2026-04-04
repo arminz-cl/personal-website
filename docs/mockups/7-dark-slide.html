@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Armin Zirak — Style 7: Dark + Side Slide</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --bg: #080c14;
+      --bg2: #0f1623;
+      --text: #e2e8f0;
+      --muted: #64748b;
+      --border: #1e2a3a;
+      --accent: #38bdf8;   /* sky blue */
+      --accent2: #818cf8;  /* indigo */
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── Reveal animations ── */
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.8s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-60px);
+      transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.8s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(60px);
+      transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.8s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    .visible {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+    .d5 { transition-delay: 0.5s; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(8,12,20,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 0 4rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-weight: 800;
+      font-size: 1rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-links { display: flex; gap: 2.5rem; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.15s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    /* ── Hero ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 4rem;
+      padding-top: 64px;
+      gap: 4rem;
+    }
+    .hero-left .label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.1s forwards;
+    }
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.25s forwards;
+    }
+    .line-accent {
+      display: block;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.4s forwards;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.55s forwards;
+    }
+    .btn-a {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #000;
+      font-weight: 700;
+      padding: 0.75rem 1.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.925rem;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .btn-a:hover { transform: translateY(-2px); opacity: 0.9; }
+    .btn-b {
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 600;
+      padding: 0.75rem 1.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.925rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .btn-b:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+    /* Hero right — stats card */
+    .hero-right {
+      opacity: 0;
+      animation: fadeUp 0.9s 0.6s forwards;
+    }
+    .stats-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem;
+    }
+    .stats-card .card-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 2rem;
+    }
+    .stat-row {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .stat-item { border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; }
+    .stat-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .stat-num {
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .stat-label { font-size: 0.875rem; color: var(--muted); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Sections ── */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 8rem 4rem;
+    }
+    .section-head {
+      margin-bottom: 4rem;
+    }
+    .section-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 4rem;
+    }
+
+    /* ── Experience ── */
+    .exp-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .exp-row:last-child { border-bottom: none; }
+    .exp-meta .co { font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 0.25rem; }
+    .exp-meta .date { font-size: 0.8rem; color: var(--muted); font-family: monospace; }
+    .exp-content .role { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.6rem; }
+    .exp-content .desc { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+    /* ── Projects ── */
+    .projects-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .proj-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: border-color 0.2s, transform 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .proj-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .proj-card:hover::before { transform: scaleX(1); }
+    .proj-card:hover { transform: translateY(-4px); border-color: var(--border); }
+    .proj-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .proj-card p { font-size: 0.875rem; color: var(--muted); }
+
+    /* ── Personal ── */
+    .personal-row {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .personal-body p { font-size: 1rem; color: #94a3b8; line-height: 1.8; margin-bottom: 1rem; }
+    .fact-list { display: flex; flex-direction: column; gap: 1rem; }
+    .fact-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .fact-dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-top: 0.55rem;
+      flex-shrink: 0;
+    }
+    .fact-text { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── Contact ── */
+    .contact-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .contact-box {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .contact-box:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .contact-type {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.6rem;
+    }
+    .contact-val { font-size: 0.9rem; color: var(--muted); }
+
+    footer {
+      text-align: center;
+      padding: 3rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Armin Zirak</div>
+  <div class="nav-links">
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#personal">Personal</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-left">
+    <div class="label">Data Engineer · Toronto, Canada</div>
+    <h1>Building data<br>systems<br><span class="line-accent">that scale.</span></h1>
+    <p class="hero-sub">Hi, I'm Armin Zirak. 5+ years in data engineering — pipelines, warehouses, distributed systems. Background in ML/AI. AWS Certified.</p>
+    <div class="hero-btns">
+      <a class="btn-a" href="#experience">My experience</a>
+      <a class="btn-b" href="#contact">Say hello</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stats-card">
+      <div class="card-label">At a glance</div>
+      <div class="stat-row">
+        <div class="stat-item">
+          <div class="stat-num">5+</div>
+          <div class="stat-label">Years in data engineering</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">20+</div>
+          <div class="stat-label">Research citations (ICSE 2024)</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">20M</div>
+          <div class="stat-label">Users served by recommender system</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="experience">
+  <div class="section-head reveal-left">
+    <div class="section-eyebrow">Career</div>
+    <h2>Experience</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="exp-row">
+    <div class="exp-meta reveal-left">
+      <div class="co">Instacart</div>
+      <div class="date">Jun 2025 – Present</div>
+    </div>
+    <div class="exp-content reveal-right">
+      <div class="role">Data Engineer</div>
+      <div class="desc">Building scalable catalog data pipelines on Snowflake, dbt, and Airflow. Focus on data quality, SOX compliance, and reliability at scale.</div>
+    </div>
+  </div>
+
+  <div class="exp-row">
+    <div class="exp-meta reveal-left d1">
+      <div class="co">Reach</div>
+      <div class="date">Feb 2024 – Jun 2025</div>
+    </div>
+    <div class="exp-content reveal-right d1">
+      <div class="role">Data (Analytics) Engineer</div>
+      <div class="desc">Led centralized payments pipeline. Migrated CDC-based ELT system across 120+ PostgreSQL/Snowflake tables.</div>
+    </div>
+  </div>
+
+  <div class="exp-row">
+    <div class="exp-meta reveal-left d2">
+      <div class="co">University of Calgary</div>
+      <div class="date">Sep – Dec 2024</div>
+    </div>
+    <div class="exp-content reveal-right d2">
+      <div class="role">Sessional Instructor — Data Engineering</div>
+      <div class="desc">Taught SENG 550. Topics: databases, Spark, ETL/ELT, distributed systems. Managed 4 TAs and designed hands-on assignments.</div>
+    </div>
+  </div>
+
+  <div class="exp-row">
+    <div class="exp-meta reveal-left d3">
+      <div class="co">TouchBistro</div>
+      <div class="date">Mar 2023 – Feb 2024</div>
+    </div>
+    <div class="exp-content reveal-right d3">
+      <div class="role">Data Engineer</div>
+      <div class="desc">Migrated restaurant ETL to AWS Glue (Spark), Airflow, S3, Redshift. Enabled parallel batch processing with Star schema.</div>
+    </div>
+  </div>
+
+  <div class="exp-row">
+    <div class="exp-meta reveal-left d4">
+      <div class="co">University of Calgary</div>
+      <div class="date">Jul 2020 – Sep 2022</div>
+    </div>
+    <div class="exp-content reveal-right d4">
+      <div class="role">Machine Learning Developer (NLP/LLM)</div>
+      <div class="desc">LLM research for Automated Program Repair using GPT-4. 20+ citations, paper at ICSE 2024.</div>
+    </div>
+  </div>
+
+  <div class="exp-row">
+    <div class="exp-meta reveal-left d5">
+      <div class="co">Yektanet</div>
+      <div class="date">Jan 2019 – Dec 2020</div>
+    </div>
+    <div class="exp-content reveal-right d5">
+      <div class="role">Data Scientist & Engineer</div>
+      <div class="desc">Spark-based recommender system for ~20M users at ~200 req/s. Collaborative filtering + NLP-based content analysis.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="section-head reveal-up">
+    <div class="section-eyebrow">Work</div>
+    <h2>Projects</h2>
+  </div>
+  <div class="section-divider"></div>
+  <div class="projects-row">
+    <div class="proj-card reveal-up d1">
+      <h3>Personal Website</h3>
+      <p>This site, built with Claude Code + Next.js. Open source on GitHub.</p>
+    </div>
+    <div class="proj-card reveal-up d2">
+      <h3>NLP Research</h3>
+      <p>Automated Program Repair using LLMs. 20+ citations, ICSE 2024.</p>
+    </div>
+    <div class="proj-card reveal-up d3">
+      <h3>Recommender System</h3>
+      <p>End-to-end Spark pipeline for ~20M users. Collaborative filtering + NLP.</p>
+    </div>
+    <div class="proj-card reveal-up d4">
+      <h3>University Teaching</h3>
+      <p>SENG 550 at University of Calgary. Designed curriculum and assignments.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="personal">
+  <div class="section-head reveal-up">
+    <div class="section-eyebrow">About me</div>
+    <h2>Personal</h2>
+  </div>
+  <div class="section-divider"></div>
+  <div class="personal-row">
+    <div class="personal-body reveal-left">
+      <p>Originally from Iran, 6 years in Canada — mostly Alberta, recently moved to Toronto. Trading mountain trails for city life. Still adjusting.</p>
+      <p>I follow politics, economics, and news for real — not just casually. Reading, writing, real conversations about what's going on. Mustang fan. Not someone who settles.</p>
+    </div>
+    <div class="fact-list reveal-right">
+      <div class="fact-item">
+        <div class="fact-dot"></div>
+        <div class="fact-text">Full month off in Iran last year. Complete disconnect. Best thing I did.</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-dot"></div>
+        <div class="fact-text">Senior data engineer who once got fully hacked by a trojan. Very humbling.</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-dot"></div>
+        <div class="fact-text">PhD in panicking (unofficial). But if I say it's different this time, it might be.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="section-head reveal-up">
+    <div class="section-eyebrow">Contact</div>
+    <h2>Get in touch</h2>
+  </div>
+  <div class="section-divider"></div>
+  <div class="contact-strip">
+    <a class="contact-box reveal-up d1" href="mailto:arminzirak2@gmail.com">
+      <div class="contact-type">Email</div>
+      <div class="contact-val">arminzirak2@gmail.com</div>
+    </a>
+    <a class="contact-box reveal-up d2" href="https://ca.linkedin.com/in/arminzirak">
+      <div class="contact-type">LinkedIn</div>
+      <div class="contact-val">linkedin.com/in/arminzirak</div>
+    </a>
+    <a class="contact-box reveal-up d3" href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">
+      <div class="contact-type">Scholar</div>
+      <div class="contact-val">20+ citations · ICSE 2024</div>
+    </a>
+  </div>
+</section>
+
+<footer>Built with Claude Code · Open source on GitHub</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-scale')
+    .forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

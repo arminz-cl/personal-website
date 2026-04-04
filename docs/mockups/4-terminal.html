@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Armin Zirak — Style 4: Terminal</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0d1117;
+      --bg2: #161b22;
+      --green: #4ade80;
+      --green-dim: #22c55e;
+      --cyan: #67e8f9;
+      --yellow: #fde047;
+      --muted: #6e7681;
+      --text: #c9d1d9;
+      --border: #21262d;
+    }
+
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background: var(--bg);
+      color: var(--green);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    /* Nav / window chrome */
+    .window-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      height: 44px;
+      display: flex;
+      align-items: center;
+      padding: 0 1.5rem;
+      z-index: 100;
+    }
+    .dots { display: flex; gap: 7px; margin-right: 1.5rem; }
+    .dot-r { width: 12px; height: 12px; background: #ff5f57; border-radius: 50%; }
+    .dot-y { width: 12px; height: 12px; background: #febc2e; border-radius: 50%; }
+    .dot-g { width: 12px; height: 12px; background: #28c840; border-radius: 50%; }
+    .window-title {
+      flex: 1;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+    .nav-cmds { display: flex; gap: 1.5rem; }
+    .nav-cmds a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.15s;
+    }
+    .nav-cmds a:hover { color: var(--green); }
+
+    /* Main layout */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 2rem 4rem;
+      padding-top: 5rem;
+    }
+
+    /* Prompt line */
+    .prompt { margin-bottom: 0.25rem; }
+    .ps1 { color: var(--green-dim); }
+    .cmd { color: var(--cyan); }
+    .output { color: var(--text); margin-bottom: 1.5rem; padding-left: 0; }
+    .output-block { margin-bottom: 2.5rem; }
+
+    /* Hero */
+    .hero-block { margin-bottom: 3rem; }
+    .ascii-name {
+      color: var(--green);
+      font-size: clamp(10px, 2vw, 14px);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      white-space: pre;
+    }
+    .hero-info { color: var(--text); margin-bottom: 0.4rem; }
+    .hero-info .key { color: var(--cyan); min-width: 120px; display: inline-block; }
+    .hero-info .val { color: var(--yellow); }
+
+    /* Section headers */
+    .section-cmd {
+      margin-top: 3rem;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Experience table */
+    .exp-table { width: 100%; border-collapse: collapse; }
+    .exp-table th {
+      text-align: left;
+      color: var(--cyan);
+      padding: 0.3rem 1rem 0.3rem 0;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-table td {
+      padding: 0.6rem 1rem 0.6rem 0;
+      color: var(--text);
+      font-size: 0.875rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .exp-table tr:last-child td { border-bottom: none; }
+    .td-date { color: var(--muted); white-space: nowrap; width: 160px; }
+    .td-co { color: var(--green-dim); width: 180px; }
+    .td-role { color: var(--yellow); width: 240px; }
+    .td-desc { color: var(--text); }
+
+    /* Projects list */
+    .proj-list { list-style: none; }
+    .proj-list li {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 24px 200px 1fr;
+      gap: 0 1rem;
+      color: var(--text);
+      font-size: 0.875rem;
+    }
+    .proj-list li:last-child { border-bottom: none; }
+    .proj-arrow { color: var(--green); }
+    .proj-name { color: var(--cyan); }
+    .proj-desc { color: var(--muted); }
+
+    /* Personal */
+    .personal-output { color: var(--text); font-size: 0.9rem; line-height: 1.75; }
+    .personal-output .comment { color: var(--muted); }
+    .personal-output p { margin-bottom: 0.75rem; }
+
+    /* Contact */
+    .contact-list { list-style: none; }
+    .contact-list li {
+      padding: 0.4rem 0;
+      font-size: 0.875rem;
+      display: flex;
+      gap: 1rem;
+    }
+    .contact-list .key { color: var(--cyan); min-width: 80px; }
+    .contact-list a { color: var(--green); text-decoration: none; }
+    .contact-list a:hover { text-decoration: underline; }
+
+    /* Cursor */
+    .cursor {
+      display: inline-block;
+      width: 8px; height: 14px;
+      background: var(--green);
+      vertical-align: middle;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="window-bar">
+  <div class="dots">
+    <div class="dot-r"></div>
+    <div class="dot-y"></div>
+    <div class="dot-g"></div>
+  </div>
+  <div class="window-title">armin@portfolio:~</div>
+  <div class="nav-cmds">
+    <a href="#experience">experience</a>
+    <a href="#projects">projects</a>
+    <a href="#personal">personal</a>
+    <a href="#contact">contact</a>
+  </div>
+</div>
+
+<main>
+
+  <!-- Hero -->
+  <div class="hero-block">
+    <div class="prompt"><span class="ps1">armin@portfolio:~$ </span><span class="cmd">whoami</span></div>
+    <pre class="ascii-name">
+  ___  ____  __  __  __  _  _     ____  __  ____    __   __ _
+ / __)(  _ \(  \/  )(  )( \( )   (_   )(  )(  _ \  /__\ (  / )
+( (__  )   / )    (  )(  )  (     / /  )(  )   / /(  )_) )  (
+ \___)(__)(_)(_/\/\_)(__)(\___)  (__) (__)(__\_)(  (__) (__\_)</pre>
+    <div class="hero-info"><span class="key">name:</span><span class="val">Armin Zirak</span></div>
+    <div class="hero-info"><span class="key">role:</span><span class="val">Data Engineer @ Instacart</span></div>
+    <div class="hero-info"><span class="key">location:</span><span class="val">Toronto, Ontario, Canada</span></div>
+    <div class="hero-info"><span class="key">experience:</span><span class="val">6+ years data engineering, 2+ years ML/AI</span></div>
+    <div class="hero-info"><span class="key">cert:</span><span class="val">AWS Certified Data Engineer</span></div>
+    <div class="hero-info"><span class="key">education:</span><span class="val">M.Sc. Software Engineering, University of Calgary</span></div>
+    <div class="hero-info"><span class="key">research:</span><span class="val">20+ citations, ICSE 2024</span></div>
+  </div>
+
+  <!-- Skills -->
+  <div class="prompt"><span class="ps1">armin@portfolio:~$ </span><span class="cmd">cat skills.txt</span></div>
+  <div class="output">
+    Snowflake · dbt · Apache Airflow · Python · Spark · AWS · PostgreSQL · Redshift · ETL/ELT · Data Modeling · NLP · LLMs · Recommender Systems
+  </div>
+
+  <!-- Experience -->
+  <div class="section-cmd" id="experience">
+    <div class="prompt"><span class="ps1">armin@portfolio:~$ </span><span class="cmd">ls -lt ./experience/</span></div>
+  </div>
+  <div class="output">
+    <table class="exp-table">
+      <thead>
+        <tr>
+          <th>PERIOD</th>
+          <th>COMPANY</th>
+          <th>ROLE</th>
+          <th>NOTES</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-date">Jun 2025 – now</td>
+          <td class="td-co">Instacart</td>
+          <td class="td-role">Data Engineer</td>
+          <td class="td-desc">Snowflake, dbt, Airflow. Catalog pipelines. Data quality + SOX compliance.</td>
+        </tr>
+        <tr>
+          <td class="td-date">Feb 2024 – Jun 2025</td>
+          <td class="td-co">Reach</td>
+          <td class="td-role">Analytics Engineer</td>
+          <td class="td-desc">Payments pipeline. CDC-based ELT migration, 120+ tables (Postgres → Snowflake).</td>
+        </tr>
+        <tr>
+          <td class="td-date">Sep – Dec 2024</td>
+          <td class="td-co">Univ. of Calgary</td>
+          <td class="td-role">Sessional Instructor</td>
+          <td class="td-desc">SENG 550 Data Engineering. Managed 4 TAs. Databases, Spark, ETL, distributed systems.</td>
+        </tr>
+        <tr>
+          <td class="td-date">Mar 2023 – Feb 2024</td>
+          <td class="td-co">TouchBistro</td>
+          <td class="td-role">Data Engineer</td>
+          <td class="td-desc">ETL migration to AWS Glue (Spark), Airflow, S3, Redshift. Star schema architecture.</td>
+        </tr>
+        <tr>
+          <td class="td-date">Jul 2020 – Sep 2022</td>
+          <td class="td-co">Univ. of Calgary</td>
+          <td class="td-role">ML Developer (NLP/LLM)</td>
+          <td class="td-desc">Automated Program Repair with GPT-4. 20+ citations. ICSE 2024.</td>
+        </tr>
+        <tr>
+          <td class="td-date">Jan 2019 – Dec 2020</td>
+          <td class="td-co">Yektanet</td>
+          <td class="td-role">Data Scientist & Engineer</td>
+          <td class="td-desc">Spark recommender system. ~20M users, ~200 req/s. Collab filtering + NLP.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Projects -->
+  <div class="section-cmd" id="projects">
+    <div class="prompt"><span class="ps1">armin@portfolio:~$ </span><span class="cmd">ls ./projects/</span></div>
+  </div>
+  <div class="output">
+    <ul class="proj-list">
+      <li><span class="proj-arrow">→</span><span class="proj-name">personal-website/</span><span class="proj-desc">Built with Claude Code + Next.js. Open source on GitHub.</span></li>
+      <li><span class="proj-arrow">→</span><span class="proj-name">nlp-research/</span><span class="proj-desc">Automated Program Repair using LLMs. 20+ citations, ICSE 2024.</span></li>
+      <li><span class="proj-arrow">→</span><span class="proj-name">recommender-sys/</span><span class="proj-desc">Spark-based system for ~20M users. Collaborative filtering + NLP.</span></li>
+      <li><span class="proj-arrow">→</span><span class="proj-name">seng550-course/</span><span class="proj-desc">Data Engineering curriculum design at U of Calgary.</span></li>
+    </ul>
+  </div>
+
+  <!-- Personal -->
+  <div class="section-cmd" id="personal">
+    <div class="prompt"><span class="ps1">armin@portfolio:~$ </span><span class="cmd">cat personal.md</span></div>
+  </div>
+  <div class="output">
+    <div class="personal-output">
+      <p><span class="comment"># background</span><br>
+      Originally from Iran. In Canada for 6 years — mostly Alberta (mountains, hiking, nature). Recently moved to Toronto. Still adjusting to the city.</p>
+      <p><span class="comment"># interests</span><br>
+      I follow politics, economics, and news for real — not casually. Reading, writing, real conversations about what's happening in the world. Mustang fan (still waiting).</p>
+      <p><span class="comment"># fun_facts</span><br>
+      - Took a full month off in Iran last year. Complete disconnect. Best thing I did.<br>
+      - Senior data engineer who got fully hacked by a trojan. Lost everything. Very humbling.<br>
+      - PhD in panicking. But if I say it's different this time — it might actually be.</p>
+      <p><span class="comment"># note</span><br>
+      I have many personal issues, but I won't share them here — not even you, dear hiring manager 😄</p>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="section-cmd" id="contact">
+    <div class="prompt"><span class="ps1">armin@portfolio:~$ </span><span class="cmd">cat contact.json</span></div>
+  </div>
+  <div class="output">
+    <ul class="contact-list">
+      <li><span class="key">email:</span><a href="mailto:arminzirak2@gmail.com">arminzirak2@gmail.com</a></li>
+      <li><span class="key">linkedin:</span><a href="https://ca.linkedin.com/in/arminzirak">linkedin.com/in/arminzirak</a></li>
+      <li><span class="key">scholar:</span><a href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">scholar.google.com — 20+ citations</a></li>
+    </ul>
+  </div>
+
+  <div class="prompt">
+    <span class="ps1">armin@portfolio:~$ </span><span class="cursor"></span>
+  </div>
+
+  <footer>
+    <span class="comment"># Built with Claude Code · Open source on GitHub</span>
+  </footer>
+
+</main>
+</body>
+</html>
