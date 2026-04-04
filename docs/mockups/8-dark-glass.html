@@ -173,11 +173,11 @@
     .hero-sub {
       font-size: 1.15rem;
       color: var(--muted);
-      max-width: 540px;
+      max-width: 800px;
       line-height: 1.75;
       margin-bottom: 2.5rem;
       opacity: 0;
-      animation: fadeUp 0.8s 0.4s forwards;
+      animation: fadeUp 0.8s 0.55s forwards;
     }
 
     .hero-btns {
@@ -214,11 +214,21 @@
     /* Hero stats strip */
     .hero-stats {
       display: flex;
-      gap: 3rem;
+      gap: 0;
       opacity: 0;
       animation: fadeUp 0.8s 0.7s forwards;
+      min-width: 540px;
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      overflow: hidden;
     }
-    .hero-stat { text-align: center; }
+    .hero-stat {
+      text-align: center;
+      flex: 1;
+      padding: 1.25rem 2rem;
+      border-right: 1px solid var(--glass-border);
+    }
+    .hero-stat:last-child { border-right: none; }
     .hero-stat .num {
       font-size: 2rem;
       font-weight: 900;
@@ -306,6 +316,39 @@
     .proj-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
     .proj-card p { font-size: 0.875rem; color: var(--muted); }
 
+    /* ── Tech Stack ── */
+    .stack-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .stack-category {
+      padding: 1.5rem 2rem;
+    }
+    .stack-category-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(167,139,250,0.7);
+      margin-bottom: 1rem;
+    }
+    .stack-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .stack-tag {
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text);
+      white-space: nowrap;
+    }
+
     /* ── Personal ── */
     .personal-grid {
       display: grid;
@@ -326,9 +369,103 @@
     .fact-glass span { color: var(--accent2); font-weight: 600; }
 
     /* ── Contact ── */
+    /* ── Teaching note ── */
+    .teaching-note {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+      margin-top: 1rem;
+    }
+    .teaching-note-left { display: flex; align-items: center; gap: 1rem; }
+    .teaching-icon {
+      width: 36px; height: 36px;
+      background: rgba(167,139,250,0.12);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .teaching-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.1rem; }
+    .teaching-sub { font-size: 0.8rem; color: var(--muted); }
+    .teaching-link {
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      display: flex; align-items: center; gap: 0.3rem;
+      transition: opacity 0.2s;
+    }
+    .teaching-link:hover { opacity: 0.75; }
+
+    /* ── AI Publications ── */
+    .pub-list { display: flex; flex-direction: column; gap: 1rem; }
+    .pub-card {
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .pub-card:hover { transform: translateX(6px); border-color: rgba(167,139,250,0.3); }
+    .pub-tag {
+      display: inline-block;
+      background: rgba(52,211,153,0.12);
+      color: var(--accent2);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+    .pub-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .pub-meta { font-size: 0.825rem; color: var(--muted); }
+    .pub-cite { font-size: 0.8rem; font-weight: 700; color: rgba(167,139,250,0.9); margin-top: 0.4rem; }
+    .pub-total { font-size: 0.9rem; color: var(--muted); margin-top: 0.35rem; margin-bottom: 1.5rem; }
+    .pub-total strong { color: rgba(167,139,250,0.95); font-size: 1.05rem; }
+    .pub-link {
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      white-space: nowrap;
+      display: flex; align-items: center; gap: 0.3rem;
+      transition: opacity 0.2s;
+      flex-shrink: 0;
+    }
+    .pub-link:hover { opacity: 0.75; }
+    .scholar-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      padding: 0.65rem 1.5rem;
+      border-radius: 10px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .scholar-btn:hover { border-color: rgba(167,139,250,0.4); transform: translateY(-2px); }
+
+    /* ── Hero title line ── */
+    .hero-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text);
+      max-width: 800px;
+      text-align: center;
+      margin-bottom: 0.75rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.4s forwards;
+    }
+
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.25rem;
     }
     .contact-glass {
@@ -369,8 +506,9 @@
   <div class="nav-logo">Armin Zirak</div>
   <div class="nav-links">
     <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#personal">Personal</a>
+    <a href="#stack">Stack</a>
+    <a href="#projects">AI Projects</a>
+    <a href="#publications">Publications</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -385,7 +523,8 @@
     <span class="name-first">Armin</span>
     <span class="name-last">Zirak.</span>
   </h1>
-  <p class="hero-sub">5+ years building data pipelines, warehouses, and distributed systems. Background in ML/AI. AWS Certified. Big believer in strong fundamentals.</p>
+  <p class="hero-title">Data engineer, ML/AI practitioner, and occasional university instructor.</p>
+  <p class="hero-sub">5+ years in data engineering, with hands-on AI/ML experience and a master's in software engineering (ML focus). Fundamentals-first: data modeling, system design, and understanding the <em>why</em> behind how systems work.</p>
   <div class="hero-btns">
     <a class="btn-primary" href="#experience">See my work</a>
     <a class="btn-ghost" href="#contact">Get in touch</a>
@@ -396,12 +535,12 @@
       <div class="lbl">Years DE</div>
     </div>
     <div class="hero-stat">
-      <div class="num">20+</div>
-      <div class="lbl">Citations</div>
+      <div class="num">2+</div>
+      <div class="lbl">Years ML/AI</div>
     </div>
     <div class="hero-stat">
-      <div class="num">20M</div>
-      <div class="lbl">Users served</div>
+      <div class="num">M.Sc.</div>
+      <div class="lbl">Software Eng.</div>
     </div>
   </div>
 </section>
@@ -422,7 +561,7 @@
         </div>
         <div>
           <div class="ec-role">Data Engineer</div>
-          <div class="ec-desc">Catalog data pipelines on Snowflake, dbt, Airflow. Data quality, SOX compliance, and reliability at scale.</div>
+          <div class="ec-desc">Various data models, marts and pipelines within Catalog to support reliability, quality and SOX compliance.</div>
         </div>
       </div>
       <div class="exp-card glass reveal d2">
@@ -432,20 +571,10 @@
         </div>
         <div>
           <div class="ec-role">Data (Analytics) Engineer</div>
-          <div class="ec-desc">Led payments pipeline. Migrated CDC-based ELT across 120+ PostgreSQL/Snowflake tables.</div>
+          <div class="ec-desc">Created payments pipeline and accounting/finance data marts. Migrated CDC-based ELT across 120+ PostgreSQL/Snowflake tables.</div>
         </div>
       </div>
       <div class="exp-card glass reveal d3">
-        <div>
-          <div class="ec-date">Sep – Dec 2024</div>
-          <div class="ec-co">University of Calgary</div>
-        </div>
-        <div>
-          <div class="ec-role">Sessional Instructor — Data Engineering</div>
-          <div class="ec-desc">Taught SENG 550. Databases, Spark, ETL/ELT, distributed systems. Managed 4 TAs.</div>
-        </div>
-      </div>
-      <div class="exp-card glass reveal d4">
         <div>
           <div class="ec-date">Mar 2023 – Feb 2024</div>
           <div class="ec-co">TouchBistro</div>
@@ -462,7 +591,7 @@
         </div>
         <div>
           <div class="ec-role">Machine Learning Developer (NLP/LLM)</div>
-          <div class="ec-desc">LLM research for Automated Program Repair using GPT-4. 20+ citations, ICSE 2024.</div>
+          <div class="ec-desc">LLM research for Automated Program Repair using GPT-4. 36+ citations across 4 publications.</div>
         </div>
       </div>
       <div class="exp-card glass reveal d6">
@@ -471,67 +600,176 @@
           <div class="ec-co">Yektanet</div>
         </div>
         <div>
-          <div class="ec-role">Data Scientist & Engineer</div>
+          <div class="ec-role">Data and AI Engineer</div>
           <div class="ec-desc">Spark-based recommender for ~20M users at ~200 req/s. Collaborative filtering + NLP.</div>
         </div>
       </div>
     </div>
+    <div style="margin-top:2rem;" class="reveal">
+      <div class="section-label" style="margin-bottom:0.75rem;">Teaching Experience</div>
+    </div>
+    <div class="teaching-note glass reveal d1">
+      <div class="teaching-note-left">
+        <div class="teaching-icon">🎓</div>
+        <div>
+          <div class="teaching-title">Sessional Instructor — University of Calgary</div>
+          <div class="teaching-sub">SENG 550: Data Engineering · Fall 2025 · Databases, Spark, ETL/ELT, distributed systems.</div>
+        </div>
+      </div>
+      <a class="teaching-link" href="#">View course slides →</a>
+    </div>
+    <div class="teaching-note glass reveal d2" style="margin-top:0;">
+      <div class="teaching-note-left">
+        <div class="teaching-icon">🎓</div>
+        <div>
+          <div class="teaching-title">Sessional Instructor — University of Calgary</div>
+          <div class="teaching-sub">SENG 550: Data Engineering · Fall 2024 · Databases, Spark, ETL/ELT, distributed systems.</div>
+        </div>
+      </div>
+      <a class="teaching-link" href="#">View course slides →</a>
+    </div>
   </div>
 
-  <!-- Projects -->
+  <!-- Tech Stack -->
+  <div class="section-block" id="stack">
+    <div class="reveal">
+      <div class="section-label">Skills</div>
+      <h2>Technical Stack</h2>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-category glass reveal d1">
+        <div class="stack-category-label">Data Engineering</div>
+        <div class="stack-tags">
+          <span class="stack-tag">Snowflake</span>
+          <span class="stack-tag">dbt</span>
+          <span class="stack-tag">Apache Airflow</span>
+          <span class="stack-tag">Apache Spark</span>
+          <span class="stack-tag">Redshift</span>
+          <span class="stack-tag">PostgreSQL</span>
+          <span class="stack-tag">ETL / ELT</span>
+          <span class="stack-tag">Data Modeling</span>
+          <span class="stack-tag">Data Warehousing</span>
+          <span class="stack-tag">Dimensional Modeling</span>
+          <span class="stack-tag">CDC</span>
+          <span class="stack-tag">Data Pipelines</span>
+          <span class="stack-tag">Data Governance</span>
+          <span class="stack-tag">Slowly Changing Dimensions</span>
+          <span class="stack-tag">Data Observability</span>
+          <span class="stack-tag">Query Optimization</span>
+          <span class="stack-tag">MongoDB</span>
+          <span class="stack-tag">Elasticsearch</span>
+        </div>
+      </div>
+      <div class="stack-category glass reveal d2">
+        <div class="stack-category-label">ML / AI</div>
+        <div class="stack-tags">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">PyTorch</span>
+          <span class="stack-tag">Hugging Face</span>
+          <span class="stack-tag">LLMs</span>
+          <span class="stack-tag">NLP</span>
+          <span class="stack-tag">Recommender Systems</span>
+          <span class="stack-tag">scikit-learn</span>
+          <span class="stack-tag">OpenAI API</span>
+          <span class="stack-tag">MLflow</span>
+          <span class="stack-tag">Pandas</span>
+        </div>
+      </div>
+      <div class="stack-category glass reveal d3">
+        <div class="stack-category-label">Cloud & Infrastructure</div>
+        <div class="stack-tags">
+          <span class="stack-tag">AWS</span>
+          <span class="stack-tag">S3</span>
+          <span class="stack-tag">Lambda</span>
+          <span class="stack-tag">EC2</span>
+          <span class="stack-tag">RDS</span>
+          <span class="stack-tag">AWS Glue</span>
+          <span class="stack-tag">Datadog</span>
+          <span class="stack-tag">ELK Stack</span>
+        </div>
+      </div>
+      <div class="stack-category glass reveal d4">
+        <div class="stack-category-label">AI Tools</div>
+        <div class="stack-tags">
+          <span class="stack-tag">Claude Code</span>
+          <span class="stack-tag">Cursor</span>
+          <span class="stack-tag">ChatGPT</span>
+        </div>
+      </div>
+      <div class="stack-category glass reveal d5">
+        <div class="stack-category-label">Books I'm Reading</div>
+        <div class="stack-tags">
+          <span class="stack-tag">Designing Data-Intensive Applications</span>
+          <span class="stack-tag">Fundamentals of Data Engineering</span>
+          <span class="stack-tag">AI Engineering (O'Reilly)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Projects -->
   <div class="section-block" id="projects">
     <div class="reveal">
       <div class="section-label">Work</div>
-      <h2>Projects</h2>
+      <h2>AI Projects</h2>
     </div>
     <div class="proj-grid">
       <div class="proj-card glass reveal d1">
         <div class="proj-tag">Open Source</div>
-        <h3>Personal Website</h3>
-        <p>Built with Claude Code + Next.js. Open source on GitHub.</p>
-      </div>
-      <div class="proj-card glass reveal d2">
-        <div class="proj-tag">Research</div>
-        <h3>NLP / LLM Research</h3>
-        <p>Automated Program Repair using LLMs. 20+ citations, ICSE 2024.</p>
-      </div>
-      <div class="proj-card glass reveal d3">
-        <div class="proj-tag">ML System</div>
-        <h3>Recommender System</h3>
-        <p>End-to-end Spark pipeline for ~20M users. Collaborative filtering + NLP.</p>
-      </div>
-      <div class="proj-card glass reveal d4">
-        <div class="proj-tag">Teaching</div>
-        <h3>University Course</h3>
-        <p>SENG 550 curriculum at University of Calgary. From SQL to distributed systems.</p>
+        <h3>This Website <span style="font-size:0.75rem;font-weight:500;color:var(--muted);">(In progress)</span></h3>
+        <p>Built entirely with Claude Code + Next.js. Open source — see how it was made.</p>
+        <a href="https://github.com/arminzir/personal-website" style="display:inline-block;margin-top:0.75rem;font-size:0.8rem;color:var(--accent);text-decoration:none;font-weight:600;">View on GitHub →</a>
       </div>
     </div>
   </div>
 
-  <!-- Personal -->
-  <div class="section-block" id="personal">
+  <!-- AI Publications -->
+  <div class="section-block" id="publications">
     <div class="reveal">
-      <div class="section-label">About me</div>
-      <h2>Personal</h2>
+      <div class="section-label">Research</div>
+      <h2>AI Publications</h2>
+      <p class="pub-total"><strong>36 citations</strong> across 4 publications</p>
     </div>
-    <div class="personal-grid">
-      <div class="personal-main glass reveal d1">
-        <p>Originally from Iran, 6 years in Canada — mostly Alberta, recently moved to Toronto. Trading mountain trails for city chaos. Still adjusting.</p>
-        <p>Outside of tech: I follow politics, economics, and news seriously. I read, write, and enjoy real conversations about what's happening in the world.</p>
-        <p>Mustang fan. Not someone who settles. Always looking for what comes next.</p>
+    <div class="pub-list">
+      <div class="pub-card glass reveal d1">
+        <div>
+          <div class="pub-tag">Journal Paper · Conference Presentation</div>
+          <div class="pub-title">Improving Automated Program Repair with Domain Adaptation</div>
+          <div class="pub-meta">ACM TOSEM · ICSE 2024</div>
+          <div class="pub-cite">28 citations</div>
+        </div>
+        <a class="pub-link" href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">Read →</a>
       </div>
-      <div class="facts-col">
-        <div class="fact-glass glass reveal d2">
-          <span>Full month in Iran</span> last year — completely off the grid. Best break I've had.
+      <div class="pub-card glass reveal d2">
+        <div>
+          <div class="pub-tag">Preprint</div>
+          <div class="pub-title">Online and Offline Evaluations of Collaborative Filtering and Content Based Recommender Systems</div>
+          <div class="pub-meta">arXiv · 2024</div>
+          <div class="pub-cite">4 citations</div>
         </div>
-        <div class="fact-glass glass reveal d3">
-          <span>Senior DE, once hacked</span> by a trojan. Lost everything. Very humbling for someone in tech.
+        <a class="pub-link" href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">Read →</a>
+      </div>
+      <div class="pub-card glass reveal d3">
+        <div>
+          <div class="pub-tag">Master's Thesis</div>
+          <div class="pub-title">Domain Adaptation for Automated Program Repair</div>
+          <div class="pub-meta">Schulich School of Engineering, University of Calgary · 2022</div>
         </div>
-        <div class="fact-glass glass reveal d4">
-          <span>PhD in panicking</span> (unofficial). But if I say this time is different, it might actually be.
+        <a class="pub-link" href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">Read →</a>
+      </div>
+      <div class="pub-card glass reveal d4">
+        <div>
+          <div class="pub-tag">Preprint</div>
+          <div class="pub-title">Real-time Travel Time Estimation Using Matrix Factorization</div>
+          <div class="pub-meta">arXiv · 2019</div>
+          <div class="pub-cite">4 citations</div>
         </div>
+        <a class="pub-link" href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">Read →</a>
       </div>
     </div>
+    <a class="scholar-btn glass reveal d5" href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">
+      📚 View all on Google Scholar — 36+ citations
+    </a>
   </div>
 
   <!-- Contact -->
@@ -548,10 +786,6 @@
       <a class="contact-glass glass reveal d2" href="https://ca.linkedin.com/in/arminzirak">
         <div class="contact-type">LinkedIn</div>
         <div class="contact-val">linkedin.com/in/arminzirak</div>
-      </a>
-      <a class="contact-glass glass reveal d3" href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">
-        <div class="contact-type">Scholar</div>
-        <div class="contact-val">20+ citations · ICSE 2024</div>
       </a>
     </div>
   </div>
