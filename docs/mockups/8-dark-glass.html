@@ -28,6 +28,34 @@
       overflow-x: hidden;
     }
 
+    /* ── Section accent icons ── */
+    .section-icon {
+      position: absolute;
+      right: -20px;
+      top: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .section-icon svg { display: block; }
+    .section-icon-toronto {
+      width: 110px;
+      opacity: 0.5;
+      filter: drop-shadow(0 0 14px rgba(167,139,250,0.5));
+    }
+    .section-icon-toronto svg { fill: rgba(167,139,250,0.9); }
+    .section-icon-data {
+      width: 90px;
+      opacity: 0.45;
+      filter: drop-shadow(0 0 14px rgba(167,139,250,0.5));
+    }
+    .section-icon-data svg { fill: rgba(167,139,250,0.9); }
+    .section-icon-ai {
+      width: 100px;
+      opacity: 0.45;
+      filter: drop-shadow(0 0 14px rgba(167,139,250,0.5));
+    }
+    .section-icon-ai svg { stroke: rgba(167,139,250,0.9); fill: none; }
+
     /* ── Background orbs ── */
     .bg-orb {
       position: fixed;
@@ -492,15 +520,88 @@
       color: var(--muted);
     }
 
-    .section-block { margin-bottom: 6rem; }
+    .section-block { margin-bottom: 6rem; position: relative; overflow: visible; }
   </style>
 </head>
 <body>
+
+<!-- Fixed background icons -->
+<!-- Data Engineering — upper left -->
+<div style="position:fixed;left:2%;top:10%;width:280px;pointer-events:none;z-index:0;opacity:0.06;">
+  <svg viewBox="0 0 100 120" fill="rgba(167,139,250,1)" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="50" cy="20" rx="40" ry="12"/>
+    <rect x="10" y="20" width="80" height="24"/>
+    <ellipse cx="50" cy="44" rx="40" ry="12"/>
+    <rect x="10" y="56" width="80" height="24"/>
+    <ellipse cx="50" cy="80" rx="40" ry="12"/>
+    <rect x="10" y="92" width="80" height="16"/>
+    <ellipse cx="50" cy="108" rx="40" ry="12"/>
+  </svg>
+</div>
+<!-- AI — middle -->
+<div style="position:fixed;left:50%;top:25%;transform:translateX(-50%);width:420px;pointer-events:none;z-index:0;opacity:0.06;">
+  <svg viewBox="0 0 120 120" fill="none" stroke="rgba(167,139,250,1)" stroke-width="3" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="15" cy="30" r="8" fill="rgba(167,139,250,1)"/><circle cx="15" cy="60" r="8" fill="rgba(167,139,250,1)"/><circle cx="15" cy="90" r="8" fill="rgba(167,139,250,1)"/>
+    <circle cx="60" cy="20" r="8" fill="rgba(167,139,250,1)"/><circle cx="60" cy="50" r="8" fill="rgba(167,139,250,1)"/><circle cx="60" cy="80" r="8" fill="rgba(167,139,250,1)"/><circle cx="60" cy="105" r="8" fill="rgba(167,139,250,1)"/>
+    <circle cx="105" cy="40" r="8" fill="rgba(167,139,250,1)"/><circle cx="105" cy="80" r="8" fill="rgba(167,139,250,1)"/>
+    <line x1="23" y1="30" x2="52" y2="20"/><line x1="23" y1="30" x2="52" y2="50"/>
+    <line x1="23" y1="60" x2="52" y2="50"/><line x1="23" y1="60" x2="52" y2="80"/>
+    <line x1="23" y1="90" x2="52" y2="80"/><line x1="23" y1="90" x2="52" y2="105"/>
+    <line x1="68" y1="20" x2="97" y2="40"/><line x1="68" y1="50" x2="97" y2="40"/>
+    <line x1="68" y1="80" x2="97" y2="80"/><line x1="68" y1="105" x2="97" y2="80"/>
+  </svg>
+</div>
+<!-- CN Tower — upper right -->
+<div style="position:fixed;right:8%;top:10%;width:200px;pointer-events:none;z-index:0;opacity:0.06;">
+  <svg viewBox="0 0 100 200" fill="rgba(167,139,250,1)" xmlns="http://www.w3.org/2000/svg">
+    <rect x="46" y="0" width="8" height="60"/>
+    <ellipse cx="50" cy="60" rx="18" ry="10"/>
+    <rect x="44" y="70" width="12" height="80"/>
+    <rect x="38" y="150" width="24" height="8" rx="2"/>
+    <rect x="30" y="158" width="40" height="6" rx="2"/>
+    <rect x="26" y="164" width="48" height="5" rx="2"/>
+    <rect x="22" y="169" width="56" height="31" rx="3"/>
+  </svg>
+</div>
+
+<!-- Teaching — bottom left -->
+<div style="position:fixed;left:8%;bottom:8%;width:170px;pointer-events:none;z-index:0;opacity:0.06;">
+  <svg viewBox="0 0 110 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="5" y="5" width="75" height="50" rx="4" fill="rgba(167,139,250,0.2)" stroke="rgba(167,139,250,1)" stroke-width="4"/>
+    <line x1="5" y1="55" x2="80" y2="55" stroke="rgba(167,139,250,1)" stroke-width="4"/>
+    <line x1="15" y1="22" x2="45" y2="22" stroke="rgba(167,139,250,1)" stroke-width="3" stroke-linecap="round"/>
+    <line x1="15" y1="32" x2="55" y2="32" stroke="rgba(167,139,250,1)" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="15" y1="41" x2="40" y2="41" stroke="rgba(167,139,250,1)" stroke-width="2" stroke-linecap="round"/>
+    <line x1="20" y1="55" x2="15" y2="75" stroke="rgba(167,139,250,1)" stroke-width="3" stroke-linecap="round"/>
+    <line x1="60" y1="55" x2="65" y2="75" stroke="rgba(167,139,250,1)" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="92" cy="20" r="9" fill="rgba(167,139,250,1)"/>
+    <line x1="92" y1="29" x2="92" y2="58" stroke="rgba(167,139,250,1)" stroke-width="5" stroke-linecap="round"/>
+    <line x1="92" y1="38" x2="78" y2="32" stroke="rgba(167,139,250,1)" stroke-width="4" stroke-linecap="round"/>
+    <line x1="92" y1="40" x2="103" y2="48" stroke="rgba(167,139,250,1)" stroke-width="4" stroke-linecap="round"/>
+    <line x1="92" y1="58" x2="86" y2="80" stroke="rgba(167,139,250,1)" stroke-width="4" stroke-linecap="round"/>
+    <line x1="92" y1="58" x2="98" y2="80" stroke="rgba(167,139,250,1)" stroke-width="4" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<!-- Claude Code — bottom right -->
+<div style="position:fixed;right:8%;bottom:8%;width:170px;pointer-events:none;z-index:0;opacity:0.06;">
+  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="12" width="84" height="76" rx="8" stroke="rgba(167,139,250,1)" stroke-width="4"/>
+    <line x1="8" y1="30" x2="92" y2="30" stroke="rgba(167,139,250,1)" stroke-width="3"/>
+    <circle cx="22" cy="21" r="4" fill="rgba(167,139,250,1)"/>
+    <circle cx="36" cy="21" r="4" fill="rgba(167,139,250,1)"/>
+    <circle cx="50" cy="21" r="4" fill="rgba(167,139,250,1)"/>
+    <text x="18" y="52" font-family="monospace" font-size="14" fill="rgba(167,139,250,1)">$_</text>
+    <line x1="18" y1="68" x2="65" y2="68" stroke="rgba(167,139,250,1)" stroke-width="3" stroke-linecap="round"/>
+    <line x1="18" y1="80" x2="50" y2="80" stroke="rgba(167,139,250,1)" stroke-width="3" stroke-linecap="round"/>
+  </svg>
+</div>
 
 <!-- Background orbs -->
 <div class="bg-orb orb-1"></div>
 <div class="bg-orb orb-2"></div>
 <div class="bg-orb orb-3"></div>
+
 
 <nav>
   <div class="nav-logo">Armin Zirak</div>
@@ -514,7 +615,7 @@
 </nav>
 
 <!-- Hero -->
-<section id="hero">
+<section id="hero" style="position:relative;overflow:visible;">
   <div class="hero-pill">
     <div class="pill-dot"></div>
     Data Engineer · Toronto, Canada
@@ -549,6 +650,19 @@
 
   <!-- Experience -->
   <div class="section-block" id="experience">
+    <div class="section-icon section-icon-data">
+      <svg viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Briefcase body -->
+        <rect x="8" y="30" width="84" height="55" rx="6" fill="rgba(167,139,250,0.9)"/>
+        <!-- Handle -->
+        <path d="M35 30 L35 18 Q35 10 50 10 Q65 10 65 18 L65 30" stroke="rgba(167,139,250,0.9)" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <!-- Center clasp -->
+        <rect x="38" y="50" width="24" height="14" rx="3" fill="rgba(167,139,250,0.3)" stroke="rgba(167,139,250,0.9)" stroke-width="3"/>
+        <!-- Horizontal divider line -->
+        <line x1="8" y1="52" x2="38" y2="52" stroke="rgba(167,139,250,0.5)" stroke-width="2"/>
+        <line x1="62" y1="52" x2="92" y2="52" stroke="rgba(167,139,250,0.5)" stroke-width="2"/>
+      </svg>
+    </div>
     <div class="reveal">
       <div class="section-label">Career</div>
       <h2>Experience</h2>
@@ -605,8 +719,32 @@
         </div>
       </div>
     </div>
-    <div style="margin-top:2rem;" class="reveal">
+    <div style="margin-top:2rem;position:relative;" class="reveal">
       <div class="section-label" style="margin-bottom:0.75rem;">Teaching Experience</div>
+      <div style="position:absolute;right:-10px;top:-10px;width:80px;opacity:0.45;pointer-events:none;filter:drop-shadow(0 0 12px rgba(167,139,250,0.5));">
+        <svg viewBox="0 0 110 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Chalkboard -->
+          <rect x="5" y="5" width="75" height="50" rx="4" fill="rgba(167,139,250,0.2)" stroke="rgba(167,139,250,0.9)" stroke-width="4"/>
+          <line x1="5" y1="55" x2="80" y2="55" stroke="rgba(167,139,250,0.9)" stroke-width="4"/>
+          <!-- Writing on board -->
+          <line x1="15" y1="22" x2="45" y2="22" stroke="rgba(167,139,250,0.9)" stroke-width="3" stroke-linecap="round"/>
+          <line x1="15" y1="32" x2="55" y2="32" stroke="rgba(167,139,250,0.7)" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="15" y1="41" x2="40" y2="41" stroke="rgba(167,139,250,0.5)" stroke-width="2" stroke-linecap="round"/>
+          <!-- Board legs -->
+          <line x1="20" y1="55" x2="15" y2="75" stroke="rgba(167,139,250,0.9)" stroke-width="3" stroke-linecap="round"/>
+          <line x1="60" y1="55" x2="65" y2="75" stroke="rgba(167,139,250,0.9)" stroke-width="3" stroke-linecap="round"/>
+          <!-- Person -->
+          <circle cx="92" cy="20" r="9" fill="rgba(167,139,250,0.9)"/>
+          <line x1="92" y1="29" x2="92" y2="58" stroke="rgba(167,139,250,0.9)" stroke-width="5" stroke-linecap="round"/>
+          <!-- Pointing arm -->
+          <line x1="92" y1="38" x2="78" y2="32" stroke="rgba(167,139,250,0.9)" stroke-width="4" stroke-linecap="round"/>
+          <!-- Other arm -->
+          <line x1="92" y1="40" x2="103" y2="48" stroke="rgba(167,139,250,0.9)" stroke-width="4" stroke-linecap="round"/>
+          <!-- Legs -->
+          <line x1="92" y1="58" x2="86" y2="80" stroke="rgba(167,139,250,0.9)" stroke-width="4" stroke-linecap="round"/>
+          <line x1="92" y1="58" x2="98" y2="80" stroke="rgba(167,139,250,0.9)" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
     </div>
     <div class="teaching-note glass reveal d1">
       <div class="teaching-note-left">
@@ -632,6 +770,16 @@
 
   <!-- Tech Stack -->
   <div class="section-block" id="stack">
+    <div class="section-icon" style="width:90px;right:-10px;top:0;position:absolute;pointer-events:none;z-index:0;opacity:0.45;filter:drop-shadow(0 0 14px rgba(167,139,250,0.5));">
+      <svg viewBox="0 0 100 100" fill="none" stroke="rgba(167,139,250,0.9)" stroke-width="4" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="30" width="80" height="50" rx="6"/>
+        <path d="M30 55 L45 45 L60 55 L75 42"/>
+        <circle cx="25" cy="20" r="8" fill="rgba(167,139,250,0.9)" stroke="none"/>
+        <circle cx="50" cy="14" r="8" fill="rgba(167,139,250,0.9)" stroke="none"/>
+        <circle cx="75" cy="20" r="8" fill="rgba(167,139,250,0.9)" stroke="none"/>
+        <line x1="25" y1="28" x2="25" y2="30"/><line x1="50" y1="22" x2="50" y2="30"/><line x1="75" y1="28" x2="75" y2="30"/>
+      </svg>
+    </div>
     <div class="reveal">
       <div class="section-label">Skills</div>
       <h2>Technical Stack</h2>
@@ -709,6 +857,20 @@
 
   <!-- AI Projects -->
   <div class="section-block" id="projects">
+    <div class="section-icon" style="width:95px;right:-10px;top:0;position:absolute;pointer-events:none;z-index:0;opacity:0.45;filter:drop-shadow(0 0 14px rgba(167,139,250,0.5));">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Terminal window -->
+        <rect x="8" y="12" width="84" height="76" rx="8" stroke="rgba(167,139,250,0.9)" stroke-width="4"/>
+        <line x1="8" y1="30" x2="92" y2="30" stroke="rgba(167,139,250,0.9)" stroke-width="3"/>
+        <circle cx="22" cy="21" r="4" fill="rgba(167,139,250,0.9)"/>
+        <circle cx="36" cy="21" r="4" fill="rgba(167,139,250,0.5)"/>
+        <circle cx="50" cy="21" r="4" fill="rgba(167,139,250,0.3)"/>
+        <!-- Prompt -->
+        <text x="18" y="52" font-family="monospace" font-size="14" fill="rgba(167,139,250,0.9)">$_</text>
+        <line x1="18" y1="68" x2="65" y2="68" stroke="rgba(167,139,250,0.6)" stroke-width="3" stroke-linecap="round"/>
+        <line x1="18" y1="80" x2="50" y2="80" stroke="rgba(167,139,250,0.4)" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </div>
     <div class="reveal">
       <div class="section-label">Work</div>
       <h2>AI Projects</h2>
@@ -725,6 +887,18 @@
 
   <!-- AI Publications -->
   <div class="section-block" id="publications">
+    <div class="section-icon section-icon-ai">
+      <svg viewBox="0 0 120 120" fill="none" stroke-width="3" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="15" cy="30" r="8" fill="rgba(167,139,250,0.9)"/><circle cx="15" cy="60" r="8" fill="rgba(167,139,250,0.9)"/><circle cx="15" cy="90" r="8" fill="rgba(167,139,250,0.9)"/>
+        <circle cx="60" cy="20" r="8" fill="rgba(167,139,250,0.9)"/><circle cx="60" cy="50" r="8" fill="rgba(167,139,250,0.9)"/><circle cx="60" cy="80" r="8" fill="rgba(167,139,250,0.9)"/><circle cx="60" cy="105" r="8" fill="rgba(167,139,250,0.9)"/>
+        <circle cx="105" cy="40" r="8" fill="rgba(167,139,250,0.9)"/><circle cx="105" cy="80" r="8" fill="rgba(167,139,250,0.9)"/>
+        <line x1="23" y1="30" x2="52" y2="20" stroke="rgba(167,139,250,0.9)"/><line x1="23" y1="30" x2="52" y2="50" stroke="rgba(167,139,250,0.9)"/>
+        <line x1="23" y1="60" x2="52" y2="50" stroke="rgba(167,139,250,0.9)"/><line x1="23" y1="60" x2="52" y2="80" stroke="rgba(167,139,250,0.9)"/>
+        <line x1="23" y1="90" x2="52" y2="80" stroke="rgba(167,139,250,0.9)"/><line x1="23" y1="90" x2="52" y2="105" stroke="rgba(167,139,250,0.9)"/>
+        <line x1="68" y1="20" x2="97" y2="40" stroke="rgba(167,139,250,0.9)"/><line x1="68" y1="50" x2="97" y2="40" stroke="rgba(167,139,250,0.9)"/>
+        <line x1="68" y1="80" x2="97" y2="80" stroke="rgba(167,139,250,0.9)"/><line x1="68" y1="105" x2="97" y2="80" stroke="rgba(167,139,250,0.9)"/>
+      </svg>
+    </div>
     <div class="reveal">
       <div class="section-label">Research</div>
       <h2>AI Publications</h2>
