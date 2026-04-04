@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Armin Zirak — Personal</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --bg: #04050a;
+      --text: #f1f5f9;
+      --muted: #64748b;
+      --border: rgba(255,255,255,0.08);
+      --glass: rgba(255,255,255,0.04);
+      --glass-border: rgba(255,255,255,0.1);
+      --accent: #a78bfa;
+      --accent2: #34d399;
+      --accent3: #60a5fa;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── Background orbs ── */
+    .bg-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb-1 { width: 600px; height: 600px; background: rgba(167,139,250,0.12); top: -200px; right: -200px; }
+    .orb-2 { width: 500px; height: 500px; background: rgba(52,211,153,0.08); bottom: 20%; left: -150px; }
+    .orb-3 { width: 400px; height: 400px; background: rgba(96,165,250,0.1); bottom: -100px; right: 30%; }
+
+    nav, main, section { position: relative; z-index: 1; }
+
+    /* ── Reveal animations ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.08s; }
+    .d2 { transition-delay: 0.16s; }
+    .d3 { transition-delay: 0.24s; }
+    .d4 { transition-delay: 0.32s; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(4,5,10,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 0 3rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-weight: 800;
+      font-size: 0.95rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+    .nav-back {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.4rem 0.9rem;
+      border-radius: 8px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-back:hover { color: var(--text); background: var(--glass); }
+
+    /* ── Glass ── */
+    .glass {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+    }
+
+    /* ── Hero ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 2rem;
+      padding-top: 60px;
+      flex-direction: column;
+    }
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(167,139,250,0.1);
+      border: 1px solid rgba(167,139,250,0.25);
+      color: var(--accent);
+      padding: 0.35rem 1rem;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.1s forwards;
+    }
+    .pill-dot {
+      width: 6px; height: 6px;
+      background: var(--accent2);
+      border-radius: 50%;
+      animation: blink 2s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    h1 {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      line-height: 0.95;
+      margin-bottom: 1.75rem;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.25s forwards;
+    }
+    .name-first { display: block; color: var(--text); }
+    .name-last {
+      display: block;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent3) 50%, var(--accent2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 700px;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.45s forwards;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.55s forwards;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.925rem;
+      text-decoration: none;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+    .btn-ghost {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      color: var(--text);
+      padding: 0.8rem 2rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.925rem;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .btn-ghost:hover { border-color: rgba(167,139,250,0.4); transform: translateY(-2px); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Main ── */
+    main { max-width: 1100px; margin: 0 auto; padding: 0 3rem 6rem; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    h2 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 2.5rem;
+    }
+    .section-block { margin-bottom: 6rem; position: relative; }
+
+    /* ── About card ── */
+    .about-card {
+      padding: 2.5rem;
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .about-card p + p { margin-top: 1rem; }
+    .about-card strong { color: var(--text); }
+
+    /* ── Interests grid ── */
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .interest-card {
+      padding: 1.75rem;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .interest-card:hover { transform: translateY(-4px); border-color: rgba(167,139,250,0.3); }
+    .interest-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    .interest-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .interest-card p { font-size: 0.875rem; color: var(--muted); }
+
+    /* ── Highlights ── */
+    .highlight-card {
+      padding: 2rem 2.5rem;
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      margin-bottom: 1.25rem;
+      transition: border-color 0.25s;
+    }
+    .highlight-card:hover { border-color: rgba(167,139,250,0.3); }
+    .highlight-emoji { font-size: 2rem; flex-shrink: 0; margin-top: 0.2rem; }
+    .highlight-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .highlight-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
+
+    /* ── Flags ── */
+    .flags-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+    .flag-card {
+      padding: 1.75rem 2rem;
+      transition: border-color 0.25s;
+    }
+    .flag-card:hover { border-color: rgba(167,139,250,0.3); }
+    .flag-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .flag-label.red { background: rgba(239,68,68,0.15); color: #f87171; }
+    .flag-label.green { background: rgba(52,211,153,0.15); color: var(--accent2); }
+    .flag-icon { margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+    .flag-icon svg { display: block; }
+    .flag-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .flag-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 3rem 0 1rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<div class="bg-orb orb-1"></div>
+<div class="bg-orb orb-2"></div>
+<div class="bg-orb orb-3"></div>
+
+<!-- Fixed background icons -->
+<!-- Work / laptop — upper left -->
+<div style="position:fixed;left:2%;top:10%;width:260px;pointer-events:none;z-index:0;opacity:0.06;">
+  <svg viewBox="0 0 24 24" fill="none" stroke="rgba(167,139,250,1)" stroke-width="1" xmlns="http://www.w3.org/2000/svg">
+    <rect x="2" y="3" width="20" height="14" rx="2"/>
+    <path d="M8 21h8M12 17v4"/>
+    <path d="M7 8h4M7 11h8"/>
+  </svg>
+</div>
+<!-- Airplane / vacation — upper right -->
+<div style="position:fixed;right:2%;top:8%;width:240px;pointer-events:none;z-index:0;opacity:0.06;">
+  <svg viewBox="0 0 24 24" fill="rgba(167,139,250,1)" xmlns="http://www.w3.org/2000/svg">
+    <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+  </svg>
+</div>
+<!-- Car / Mustang — middle left -->
+<div style="position:fixed;left:3%;top:40%;width:280px;pointer-events:none;z-index:0;opacity:0.06;">
+  <svg viewBox="0 0 24 24" fill="none" stroke="rgba(167,139,250,1)" stroke-width="1" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5 17H3a1 1 0 0 1-1-1v-3a1 1 0 0 1 .553-.894L5 11l3-5h8l2 3h2a2 2 0 0 1 2 2v2a1 1 0 0 1-1 1h-1"/>
+    <circle cx="7.5" cy="17.5" r="2.5"/>
+    <circle cx="16.5" cy="17.5" r="2.5"/>
+    <path d="M8 11h8"/>
+  </svg>
+</div>
+<!-- Game controller — middle right -->
+<div style="position:fixed;right:3%;top:38%;width:260px;pointer-events:none;z-index:0;opacity:0.06;">
+  <svg viewBox="0 0 24 24" fill="none" stroke="rgba(167,139,250,1)" stroke-width="1" xmlns="http://www.w3.org/2000/svg">
+    <rect x="2" y="6" width="20" height="12" rx="6"/>
+    <path d="M6 12h4M8 10v4"/>
+    <circle cx="16" cy="11" r="1" fill="rgba(167,139,250,1)"/>
+    <circle cx="18" cy="13" r="1" fill="rgba(167,139,250,1)"/>
+  </svg>
+</div>
+<!-- Mountain / nature — bottom left -->
+<div style="position:fixed;left:4%;bottom:8%;width:240px;pointer-events:none;z-index:0;opacity:0.06;">
+  <svg viewBox="0 0 24 24" fill="rgba(167,139,250,1)" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3 20l6-10 3 5 3-3 6 8H3z"/>
+    <circle cx="18" cy="6" r="2"/>
+  </svg>
+</div>
+<!-- Newspaper / politics — bottom right -->
+<div style="position:fixed;right:4%;bottom:8%;width:220px;pointer-events:none;z-index:0;opacity:0.06;">
+  <svg viewBox="0 0 24 24" fill="none" stroke="rgba(167,139,250,1)" stroke-width="1" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/>
+    <path d="M18 14h-8M15 18h-5M10 6h8v4h-8V6z"/>
+  </svg>
+</div>
+
+<nav>
+  <a class="nav-logo" href="/">Armin</a>
+</nav>
+
+<!-- Hero -->
+<section id="hero">
+  <div class="hero-pill">
+    <div class="pill-dot"></div>
+    Data/AI Engineer · Toronto, Canada
+  </div>
+  <h1>
+    <span class="name-last">Armin</span>
+  </h1>
+  <p class="hero-sub">Engineer by day, overthinker by design. Originally from Iran, six years in Canada, recently traded Alberta's mountains for Toronto's chaos. Still figuring out which was better.</p>
+  <div class="hero-btns">
+    <a class="btn-primary" href="#about">Get to know me</a>
+    <a class="btn-ghost" href="index.html">My work page</a>
+  </div>
+</section>
+
+<main>
+
+  <!-- Who I am -->
+  <div class="section-block" id="about">
+    <div class="reveal">
+      <div class="section-label">The basics</div>
+      <h2>Who I am</h2>
+    </div>
+    <div class="about-card glass reveal d1">
+      <p>I moved to Canada six years ago and spent all of that time in Alberta until very recently — mountains, hikes, camps, and a solid social life. Recently relocated to Toronto for work. The city is loud and crowded and I'm slowly making my peace with that.</p>
+      <p>I'm the kind of person who is <strong>a bit too into work</strong> — data engineering at Instacart, with a few side hustles on top. It comes at a cost — sacrificing personal life a bit — and I know it. But I also genuinely like building things and being good at what I do.</p>
+      <p>Longer term I want to grow into bigger positions, while keeping an eye on other routes — small businesses, AI opportunities, whatever makes sense. I'm not someone who settles. <strong>Always looking for the next thing.</strong></p>
+    </div>
+  </div>
+
+  <!-- Interests -->
+  <div class="section-block" id="interests">
+    <div class="reveal">
+      <h2>What I'm into</h2>
+    </div>
+    <div class="interests-grid">
+      <div class="interest-card glass reveal d1">
+        <div class="interest-icon">👨‍💻</div>
+        <h3>Work & Building</h3>
+        <p>Covered above — but yes, a lot going on.</p>
+      </div>
+      <div class="interest-card glass reveal d2">
+        <div class="interest-icon">✈️</div>
+        <h3>Full Reset — Vacation</h3>
+        <p>When I take a break, I take a real one. Last year I went back to Iran for a full month — no laptop, no work, complete disconnect. That's the kind of rest that actually works.</p>
+      </div>
+      <div class="interest-card glass reveal d3">
+        <div class="interest-icon">🚗</div>
+        <h3>Sport Cars</h3>
+        <p>Big Mustang fan.</p>
+      </div>
+      <div class="interest-card glass reveal d4">
+        <div class="interest-icon">🎮</div>
+        <h3>Co-op Games</h3>
+        <p>Overcooked, It Takes Two, board games.</p>
+      </div>
+      <div class="interest-card glass reveal d5">
+        <div class="interest-icon">🏔️</div>
+        <h3>Nature & the outdoors</h3>
+        <p>Hikes, camps, boats, road trips — six years in Alberta will do that to you.</p>
+      </div>
+      <div class="interest-card glass reveal d6">
+        <div class="interest-icon">📰</div>
+        <h3>Politics & Economics</h3>
+        <p>You'd like to discuss politics? I'm very into it too.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photo grid -->
+  <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem;">
+    <img src="https://www.mustdocanada.com/wp-content/uploads/2021/04/Spray-Lakes-West-Camping-in-Alberta-1024x768.jpg" alt="Spray Lakes, Alberta" style="width:100%;border-radius:20px;object-fit:cover;max-height:300px;border:1px solid rgba(255,255,255,0.1);">
+    <img src="https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/store/software/switch/70010000003402/057249cf707a2a733c876c0eb453bb018ee6ea09f3aea5c350f4d76f70840d00" alt="Co-op game" style="width:100%;border-radius:20px;object-fit:cover;max-height:300px;border:1px solid rgba(255,255,255,0.1);">
+    <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*DrfIQnE5gOFb4TvObahiZg.jpeg" alt="" style="width:100%;border-radius:20px;object-fit:cover;max-height:300px;border:1px solid rgba(255,255,255,0.1);">
+    <img src="https://s28477.pcdn.co/wp-content/uploads/2018/11/AC_2025_5-984x554.jpg" alt="" style="width:100%;border-radius:20px;object-fit:cover;max-height:300px;border:1px solid rgba(255,255,255,0.1);">
+  </div>
+
+  <!-- Mustang photo -->
+  <div class="reveal" style="margin-bottom:6rem;">
+    <img src="https://fordstbasile.ca/wp-content/uploads/2024/09/ford-mustang-2024-4-1704814625377.jpg" alt="Ford Mustang 2024" style="width:100%;border-radius:20px;object-fit:cover;max-height:420px;border:1px solid rgba(255,255,255,0.1);">
+  </div>
+
+  <!-- Flags -->
+  <div class="section-block" id="flags">
+    <div class="reveal">
+      <div class="section-label">Full transparency</div>
+      <h2>Flags</h2>
+    </div>
+    <div class="flags-grid">
+      <div class="flag-card glass reveal d1">
+        <div class="flag-icon">
+          <!-- Brain / overthinker -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9.5 2a4.5 4.5 0 0 1 4.5 4.5v.5h1a3 3 0 0 1 0 6h-1v.5a4.5 4.5 0 0 1-9 0V6.5A4.5 4.5 0 0 1 9.5 2z"/>
+            <path d="M14 7h1a3 3 0 0 1 0 6h-1"/>
+            <line x1="9" y1="10" x2="9" y2="10.01"/>
+            <line x1="9" y1="14" x2="9" y2="14.01"/>
+          </svg>
+        </div>
+        <h3>Certified Overthinker</h3>
+        <p>I have a PhD in panicking. Please calm me down, I need it.</p>
+      </div>
+      <div class="flag-card glass reveal d2">
+        <div class="flag-icon">
+          <!-- Shopping bag -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+        </div>
+        <h3>Do Not Take Me Shopping</h3>
+        <p>Every second I'm shopping with you, the anger builds. Please — stop it before it blows up.</p>
+      </div>
+      <div class="flag-card glass reveal d3">
+        <div class="flag-icon">
+          <!-- Target / goal -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="12" r="6"/>
+            <circle cx="12" cy="12" r="2"/>
+          </svg>
+        </div>
+        <h3>Boredom is the Enemy</h3>
+        <p>A person without a goal is a dead person.</p>
+      </div>
+      <div class="flag-card glass reveal d4">
+        <div class="flag-icon">
+          <!-- Hot tub / bathtub -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1 .5L3 6"/>
+            <path d="M3 11h18v4a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-4z"/>
+            <path d="M7 11V7a2 2 0 0 1 2-2h.5"/>
+            <path d="M5 19v2M19 19v2"/>
+            <path d="M8 6h.01M12 6h.01M16 6h.01"/>
+          </svg>
+        </div>
+        <h3>Hate Hot Tubs</h3>
+        <p>Don't put a water pump on the deck.</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>The professional side lives <a href="index.html">here</a> · <a href="mailto:arminzirak2@gmail.com">arminzirak2@gmail.com</a></p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
+  );
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
