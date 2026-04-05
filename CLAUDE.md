@@ -1,9 +1,10 @@
 # Project Rules
 
 ## Content & Tone
-- All text should sound friendly and spoken — not AI-generated or corporate
+- All text should sound friendly and spoken, not AI-generated or corporate
 - Simple, clear English (accessible over fancy; English is a second language)
 - Keep it descriptive and visual where possible; people skim, they don't read deeply
+- Do not use -- (em dash) in text content; it reads as AI-generated
 
 ## Design
 - Simple and clean — avoid complexity for its own sake
