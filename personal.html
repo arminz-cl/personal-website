@@ -292,6 +292,46 @@
     }
     footer a { color: var(--accent); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      /* Nav */
+      nav { padding: 0 1rem; }
+
+      /* Main layout */
+      main { padding: 0 1.25rem 3rem; }
+      .section-block { margin-bottom: 3.5rem; }
+
+      /* Typography */
+      h2 { font-size: 1.6rem; margin-bottom: 1.75rem; }
+      .hero-sub { font-size: 0.95rem; }
+
+      /* Hero */
+      #hero { padding: 0 1.25rem; padding-top: 60px; }
+      .hero-pill { font-size: 0.7rem; text-align: center; }
+      .hero-btns { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; }
+      .btn-primary, .btn-ghost { text-align: center; }
+
+      /* Hero avatar */
+      #hero > div:first-of-type { width: 180px !important; height: 180px !important; }
+
+      /* About section — stack photo above text */
+      .about-layout { grid-template-columns: 1fr !important; }
+      .about-layout > div:first-child { order: -1; }
+      .about-layout img { width: 100% !important; max-height: 280px; }
+
+      /* Interests grid — 2 cols on tablet */
+      .interests-grid { grid-template-columns: repeat(2, 1fr); }
+
+      /* Flags — single col */
+      .flags-grid { grid-template-columns: 1fr; }
+
+      /* Photo grid — single col */
+      .photo-grid { grid-template-columns: 1fr !important; }
+    }
+
+    @media (max-width: 480px) {
+      .interests-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -379,7 +419,7 @@
       <div class="section-label">The basics</div>
       <h2>Who I am</h2>
     </div>
-    <div style="display:grid;grid-template-columns:auto 1fr;gap:1.75rem;align-items:start;">
+    <div class="about-layout" style="display:grid;grid-template-columns:auto 1fr;gap:1.75rem;align-items:start;">
       <div class="reveal d1" style="align-self:stretch;display:flex;">
         <img src="docs/photos/IMG_20260403_091002_853.jpg" alt="" style="width:200px;flex:1;object-fit:cover;object-position:42% center;border-radius:20px;border:1px solid rgba(255,255,255,0.1);display:block;">
       </div>
@@ -432,7 +472,7 @@
   </div>
 
   <!-- Photo grid -->
-  <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem;">
+  <div class="reveal photo-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem;">
     <img src="https://www.mustdocanada.com/wp-content/uploads/2021/04/Spray-Lakes-West-Camping-in-Alberta-1024x768.jpg" alt="Spray Lakes, Alberta" style="width:100%;border-radius:20px;object-fit:cover;max-height:300px;border:1px solid rgba(255,255,255,0.1);">
     <img src="https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/store/software/switch/70010000003402/057249cf707a2a733c876c0eb453bb018ee6ea09f3aea5c350f4d76f70840d00" alt="Co-op game" style="width:100%;border-radius:20px;object-fit:cover;max-height:300px;border:1px solid rgba(255,255,255,0.1);">
     <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*DrfIQnE5gOFb4TvObahiZg.jpeg" alt="" style="width:100%;border-radius:20px;object-fit:cover;max-height:300px;border:1px solid rgba(255,255,255,0.1);">
