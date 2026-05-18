@@ -7,6 +7,7 @@ My personal website — a resume and experience showcase, a projects page, and a
 ## Pages
 
 - **[arminz-cl.github.io/personal-website](https://arminz-cl.github.io/personal-website)** — Resume and experience showcase, projects, and work history
+- **[arminz-cl.github.io/personal-website/software-ai.html](https://arminz-cl.github.io/personal-website/software-ai.html)** — Software & AI engineering profile, tailored for AI/ML roles
 - **[arminz-cl.github.io/personal-website/personal.html](https://arminz-cl.github.io/personal-website/personal.html)** — Personal section about who I am outside of work
 
 ## About
