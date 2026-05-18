@@ -425,11 +425,6 @@
     }
     .teaching-link:hover { opacity: 0.75; }
 
-    /* ── Experience bullets ── */
-    .ec-bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.3rem; }
-    .ec-bullets li { font-size: 0.875rem; color: var(--muted); line-height: 1.65; padding-left: 1rem; position: relative; }
-    .ec-bullets li::before { content: '·'; position: absolute; left: 0; color: var(--accent); }
-
     /* ── AI Publications ── */
     .pub-list { display: flex; flex-direction: column; gap: 1rem; }
     .pub-card {
@@ -675,8 +670,8 @@
     <span class="name-first">Armin</span>
     <span class="name-last">Zirak.</span>
   </h1>
-  <p class="hero-title">Data Engineer at Instacart, Experienced in AI.</p>
-  <p class="hero-sub">5+ years in data engineering, specializing in big data architectures, ETL pipelines, data warehousing, data modeling, and cloud platforms. 2+ years in ML and software engineering, focusing on LLMs and recommender systems. M.Sc. in software engineering (ML focus) with 38+ citations across 4 publications, including work presented at ICSE 2024. Also teaches data engineering at the University of Calgary.</p>
+  <p class="hero-title">Data engineer, ML/AI practitioner, and occasional university instructor.</p>
+  <p class="hero-sub">5+ years in data engineering, with hands-on AI/ML experience and a Master's in software engineering (ML focus). Fundamentals-first: data modeling, system design, pipeline architecture, query optimization, reliability, and scalability.</p>
   <div class="hero-btns">
     <a class="btn-primary" href="#experience">See my work</a>
     <a class="btn-ghost" href="#contact">Get in touch</a>
@@ -691,8 +686,8 @@
       <div class="lbl">Years ML/AI</div>
     </div>
     <div class="hero-stat">
-      <div class="num">Master's</div>
-      <div class="lbl">Software Eng. (ML)</div>
+      <div class="num">M.Sc.</div>
+      <div class="lbl">Software Eng.</div>
     </div>
   </div>
 </section>
@@ -725,68 +720,38 @@
           <div class="ec-co">Instacart</div>
         </div>
         <div>
-          <div class="ec-role">Software Engineer (Data &amp; Platform)</div>
-          <ul class="ec-bullets">
-            <li><strong>High-Scale Infrastructure:</strong> Architected and scaled distributed data systems processing core backend catalog data using Snowflake, dbt, and Airflow, optimising data availability and real-time processing latency for downstream intelligent search and discovery systems.</li>
-            <li><strong>Data Integrity &amp; Quality:</strong> Engineered automated parity-checking frameworks and Source of Truth (SoT) multi-dimensional data models to guarantee data lineage, data quality, and strict enterprise compliance (SOX) across high-throughput production workloads.</li>
-            <li><strong>System Optimisation:</strong> Optimised complex Python and SQL backend platform logic to eliminate data anomalies, increasing data pipeline visibility and building dependable foundations for production data consumers.</li>
-          </ul>
+          <div class="ec-role">Data Engineer</div>
+          <div class="ec-desc">Various data models, marts and pipelines within Catalog to support reliability, quality and SOX compliance.</div>
         </div>
       </div>
       <div class="exp-card glass reveal d2">
         <div>
           <div class="ec-date">Feb 2024 – Jun 2025</div>
-          <div class="ec-co">Reach LTD</div>
+          <div class="ec-co">Reach</div>
         </div>
         <div>
-          <div class="ec-role">Software Engineer (Backend &amp; Data)</div>
-          <ul class="ec-bullets">
-            <li><strong>High-Concurrency Systems:</strong> Led the backend engineering of critical fintech payment processing services and high-throughput financial data architectures, utilising AWS and Snowflake to support high-concurrency production workloads.</li>
-            <li><strong>Complex Data Migration:</strong> Designed and executed a zero-downtime structural migration of 120+ tables from PostgreSQL to Snowflake, developing custom automated QA validation systems and extensible backfill strategies to guarantee 100% data integrity.</li>
-            <li><strong>Architectural Leadership:</strong> Transitioned infrastructure from reactive maintenance to an optimized, proactive scaling model by architecting robust backend data models and reusable, modular dbt execution frameworks.</li>
-          </ul>
+          <div class="ec-role">Data Engineer</div>
+          <div class="ec-desc">Created payments pipeline and accounting/finance data marts. Migrated CDC-based ELT across 120+ PostgreSQL/Snowflake tables.</div>
         </div>
       </div>
       <div class="exp-card glass reveal d3">
-        <div>
-          <div class="ec-date">Sep 2024 – Dec 2024</div>
-          <div class="ec-co">University of Calgary</div>
-        </div>
-        <div>
-          <div class="ec-role">Sessional Instructor | Data Engineering and Big Data</div>
-          <ul class="ec-bullets">
-            <li>Taught fundamental principles of distributed systems, Hadoop, Spark, and ETL/ELT architectures to undergraduate engineering students.</li>
-            <li>Managed a technical team of 4 Teaching Assistants and designed practical software assignments for real-world system applications.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="exp-card glass reveal d4">
         <div>
           <div class="ec-date">Mar 2023 – Feb 2024</div>
           <div class="ec-co">TouchBistro</div>
         </div>
         <div>
-          <div class="ec-role">Software Engineer (Data Platform)</div>
-          <ul class="ec-bullets">
-            <li><strong>Distributed Data Processing:</strong> Developed and managed large-scale enterprise ETL pipelines and distributed migration frameworks using AWS (Glue/Spark, Lambda, Step Functions, and EventBridge) to ingest and process complex restaurant system workloads.</li>
-            <li><strong>Parallel Architectures:</strong> Led the structural modernization of legacy data pipelines into a high-performance parallel batch processing architecture, significantly increasing data throughput and system efficiency.</li>
-            <li><strong>Infrastructure Modernization:</strong> Engineered full-stack, type-safe data tooling using TypeScript and PostgreSQL to phase out brittle legacy infrastructure, improving code maintainability and execution speed.</li>
-          </ul>
+          <div class="ec-role">Data Engineer</div>
+          <div class="ec-desc">ETL migration to AWS Glue (Spark), Airflow, S3, Redshift. Star schema architecture.</div>
         </div>
       </div>
       <div class="exp-card glass reveal d5">
         <div>
-          <div class="ec-date">Dec 2020 – Sep 2022</div>
+          <div class="ec-date">Jul 2020 – Sep 2022</div>
           <div class="ec-co">University of Calgary</div>
         </div>
         <div>
-          <div class="ec-role">Machine Learning Software Engineer (Research)</div>
-          <ul class="ec-bullets">
-            <li><strong>LLM Architecture Tuning &amp; Adaptation:</strong> Conducted deep applied ML research focused on the structural domain adaptation of generative, text-to-text language models; implemented, customized, and fine-tuned state-of-the-art Transformer token-prediction architectures to capture dense contextual representations from highly complex datasets.</li>
-            <li><strong>NLP &amp; Transformers:</strong> Designed, trained, and benchmarked NLP modeling workflows utilizing PyTorch, Keras, and the Hugging Face ecosystem; engineered parameter-efficient tuning routines using lightweight adapter layers and token-masking strategies to control loss convergence and step-wise learning trajectories.</li>
-            <li><strong>Generative Simulation &amp; Data Augmentation:</strong> Formulated and deployed an auxiliary Transformer-based text generation model to synthetically simulate unseen data variations; leveraged this custom synthesizer to run Zero-shot adaptation experiments, driving comprehensive model evaluation that significantly enhanced model accuracy and inference quality.</li>
-            <li><strong>High-Performance Compute Scale:</strong> Scaled end-to-end model training, hyperparameter optimization, and text generation sequences across high-performance, GPU-accelerated distributed clusters, managing multi-node data loaders to track validation decay and token distribution drift.</li>
-          </ul>
+          <div class="ec-role">Machine Learning Developer (LLMs)</div>
+          <div class="ec-desc">LLM research for Automated Program Repair using GPT-4. 36+ citations across 4 publications.</div>
         </div>
       </div>
       <div class="exp-card glass reveal d6">
@@ -795,16 +760,57 @@
           <div class="ec-co">Yektanet</div>
         </div>
         <div>
-          <div class="ec-role">Software Engineer (Machine Learning Systems)</div>
-          <ul class="ec-bullets">
-            <li><strong>Algorithmic Architecture Design:</strong> Spearheaded the mathematical design and architecture of personalized recommendation systems, engineering custom high-dimensional text embedding pipelines and content encoding mechanisms to map behavioral user data into rich semantic vector spaces.</li>
-            <li><strong>Matrix Factorization &amp; Collaborative Filtering:</strong> Designed, trained, and optimized large-scale matrix factorization, deep collaborative filtering, and content-based recommendation algorithms, managing complex mathematical feature engineering to deliver targeted item distributions.</li>
-            <li><strong>Algorithmic Evaluation &amp; Loss Metrics:</strong> Engineered rigorous offline simulation frameworks and statistical evaluation suites using PostgreSQL and Redis to track validation loss, vector drift, and ranking degradation prior to production deployment.</li>
-            <li><strong>Statistical Machine Learning Execution:</strong> Executed A/B testing frameworks and continuous mathematical hyperparameter optimization to systematically evaluate algorithmic variations, measurably accelerating User Click-Through Rates (CTR).</li>
-            <li><strong>Real-Time Inference Optimization:</strong> Formulated model routing and computational inference optimizations to host dense recommendation matrices dynamically, scaling real-time algorithmic execution to 200+ Requests Per Second (RPS) within a strict sub-100ms latency budget.</li>
-          </ul>
+          <div class="ec-role">Data and AI Engineer</div>
+          <div class="ec-desc">Spark-based recommender for ~20M users at ~200 req/s. Collaborative filtering + NLP.</div>
         </div>
       </div>
+    </div>
+    <div style="margin-top:2rem;position:relative;" class="reveal">
+      <div class="section-label" style="margin-bottom:0.75rem;">Teaching Experience</div>
+      <div style="position:absolute;right:-10px;top:-10px;width:80px;opacity:0.45;pointer-events:none;filter:drop-shadow(0 0 12px rgba(167,139,250,0.5));">
+        <svg viewBox="0 0 110 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Chalkboard -->
+          <rect x="5" y="5" width="75" height="50" rx="4" fill="rgba(167,139,250,0.2)" stroke="rgba(167,139,250,0.9)" stroke-width="4"/>
+          <line x1="5" y1="55" x2="80" y2="55" stroke="rgba(167,139,250,0.9)" stroke-width="4"/>
+          <!-- Writing on board -->
+          <line x1="15" y1="22" x2="45" y2="22" stroke="rgba(167,139,250,0.9)" stroke-width="3" stroke-linecap="round"/>
+          <line x1="15" y1="32" x2="55" y2="32" stroke="rgba(167,139,250,0.7)" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="15" y1="41" x2="40" y2="41" stroke="rgba(167,139,250,0.5)" stroke-width="2" stroke-linecap="round"/>
+          <!-- Board legs -->
+          <line x1="20" y1="55" x2="15" y2="75" stroke="rgba(167,139,250,0.9)" stroke-width="3" stroke-linecap="round"/>
+          <line x1="60" y1="55" x2="65" y2="75" stroke="rgba(167,139,250,0.9)" stroke-width="3" stroke-linecap="round"/>
+          <!-- Person -->
+          <circle cx="92" cy="20" r="9" fill="rgba(167,139,250,0.9)"/>
+          <line x1="92" y1="29" x2="92" y2="58" stroke="rgba(167,139,250,0.9)" stroke-width="5" stroke-linecap="round"/>
+          <!-- Pointing arm -->
+          <line x1="92" y1="38" x2="78" y2="32" stroke="rgba(167,139,250,0.9)" stroke-width="4" stroke-linecap="round"/>
+          <!-- Other arm -->
+          <line x1="92" y1="40" x2="103" y2="48" stroke="rgba(167,139,250,0.9)" stroke-width="4" stroke-linecap="round"/>
+          <!-- Legs -->
+          <line x1="92" y1="58" x2="86" y2="80" stroke="rgba(167,139,250,0.9)" stroke-width="4" stroke-linecap="round"/>
+          <line x1="92" y1="58" x2="98" y2="80" stroke="rgba(167,139,250,0.9)" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+    <div class="teaching-note glass reveal d1">
+      <div class="teaching-note-left">
+        <div class="teaching-icon">🎓</div>
+        <div>
+          <div class="teaching-title">Sessional Instructor, University of Calgary</div>
+          <div class="teaching-sub">SENG 550: Data Engineering · Fall 2025 · Databases, Spark, ETL/ELT, distributed systems.</div>
+        </div>
+      </div>
+      <a class="teaching-link" href="https://github.com/arminz-cl/personal-website/tree/main/docs/seng550-slides" target="_blank">View course slides →</a>
+    </div>
+    <div class="teaching-note glass reveal d2" style="margin-top:0;">
+      <div class="teaching-note-left">
+        <div class="teaching-icon">🎓</div>
+        <div>
+          <div class="teaching-title">Sessional Instructor, University of Calgary</div>
+          <div class="teaching-sub">SENG 550: Data Engineering · Fall 2024 · Databases, Spark, ETL/ELT, distributed systems.</div>
+        </div>
+      </div>
+      <a class="teaching-link" href="https://github.com/arminz-cl/personal-website/tree/main/docs/seng550-slides" target="_blank">View course slides →</a>
     </div>
   </div>
 
@@ -873,12 +879,6 @@
       <div class="stack-category glass reveal d3">
         <div class="stack-category-label">Cloud & Infrastructure</div>
         <div class="stack-tags">
-          <span class="stack-tag">Google Cloud Platform</span>
-          <span class="stack-tag">BigQuery</span>
-          <span class="stack-tag">Cloud Storage</span>
-          <span class="stack-tag">Cloud Dataflow</span>
-          <span class="stack-tag">Cloud Composer</span>
-          <span class="stack-tag">Vertex AI</span>
           <span class="stack-tag">AWS</span>
           <span class="stack-tag">S3</span>
           <span class="stack-tag">Lambda</span>
@@ -905,13 +905,6 @@
           <span class="stack-tag">SQL</span>
           <span class="stack-tag">Java</span>
           <span class="stack-tag">Scala</span>
-        </div>
-      </div>
-      <div class="stack-category glass reveal d6">
-        <div class="stack-category-label">Certifications</div>
-        <div class="stack-tags">
-          <span class="stack-tag">Google Cloud Professional Data Engineer</span>
-          <span class="stack-tag">AWS Data Engineer Associate</span>
         </div>
       </div>
       <div class="stack-category glass reveal d6">
@@ -996,7 +989,7 @@
     <div class="reveal">
       <div class="section-label">Research</div>
       <h2>AI Publications</h2>
-      <p class="pub-total"><strong>38 citations</strong> across 4 publications</p>
+      <p class="pub-total"><strong>36 citations</strong> across 4 publications</p>
     </div>
     <div class="pub-list">
       <div class="pub-card glass reveal d1">
@@ -1004,7 +997,7 @@
           <div class="pub-tag">Journal Paper · Conference Presentation</div>
           <div class="pub-title">Improving Automated Program Repair with Domain Adaptation</div>
           <div class="pub-meta">ACM TOSEM · ICSE 2024</div>
-          <div class="pub-cite">29 citations</div>
+          <div class="pub-cite">28 citations</div>
         </div>
         <a class="pub-link" href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">Read →</a>
       </div>
@@ -1013,7 +1006,7 @@
           <div class="pub-tag">Preprint</div>
           <div class="pub-title">Online and Offline Evaluations of Collaborative Filtering and Content Based Recommender Systems</div>
           <div class="pub-meta">arXiv · 2024</div>
-          <div class="pub-cite">5 citations</div>
+          <div class="pub-cite">4 citations</div>
         </div>
         <a class="pub-link" href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">Read →</a>
       </div>
@@ -1036,7 +1029,7 @@
       </div>
     </div>
     <a class="scholar-btn glass reveal d5" href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">
-      📚 View all on Google Scholar, 38+ citations
+      📚 View all on Google Scholar, 36+ citations
     </a>
   </div>
 
