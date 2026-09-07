@@ -675,23 +675,23 @@
     <span class="name-first">Armin</span>
     <span class="name-last">Zirak.</span>
   </h1>
-<p class="hero-sub"><strong>5+ years</strong> of <strong>industry</strong> experience designing, building, and scaling high-concurrency <strong>distributed systems</strong>, microservices, <strong>databases</strong>, and robust full-stack architectures. Proven track record of architecting secure <strong>backend services and REST APIs</strong> using <strong>Python (Django)</strong>, <strong>Java (Spring)</strong>, and <strong>TypeScript</strong>, while managing <strong>terabyte-scale data pipelines</strong> and optimized <strong>data infrastructure</strong> serving <strong>20M+ users at 500+ RPS</strong>. Holds a <strong>Master's in Software Engineering (GPA 4.0/4.0)</strong>, complemented by <strong>2 years</strong> of specialized <strong>Machine Learning</strong> research in an advanced ML/LLM lab.</p>
+<p class="hero-sub"><strong>~6 years</strong> building <strong>data platforms</strong>, <strong>distributed systems</strong>, and the backend services around them. At <strong>Instacart</strong> I architected and own a <strong>petabyte-scale data-observability framework</strong> and led a <strong>$40K/month</strong> cost-reduction effort on the catalog data platform. Earlier I architected an end-to-end <strong>recommender system serving 20M+ users at 500+ RPS</strong>. I come at this from a <strong>machine-learning research background</strong> — a <strong>Master's in Software Engineering (GPA 4.0/4.0)</strong> and a first-author paper in <strong>ACM TOSEM</strong> — and I still build with LLMs (RAG, fine-tuning, evals) in my open-source projects.</p>
   <div class="hero-btns">
     <a class="btn-primary" href="#experience">See my work</a>
     <a class="btn-ghost" href="#contact">Get in touch</a>
   </div>
   <div class="hero-stats">
     <div class="hero-stat">
-      <div class="num">5+</div>
-      <div class="lbl">Years SWE</div>
+      <div class="num">6+</div>
+      <div class="lbl">Years in industry</div>
     </div>
     <div class="hero-stat">
-      <div class="num">2+</div>
-      <div class="lbl">Years ML/AI</div>
+      <div class="num">20M+</div>
+      <div class="lbl">Users served</div>
     </div>
     <div class="hero-stat">
       <div class="num">M.Sc.</div>
-      <div class="lbl">Software Eng.</div>
+      <div class="lbl">Software Eng. · 4.0</div>
     </div>
   </div>
 </section>
@@ -724,8 +724,8 @@
           <div class="ec-co">Instacart</div>
         </div>
         <div>
-          <div class="ec-role">Software Engineer (Data Platform)</div>
-          <div class="ec-desc">Engineered and optimized core catalog data pipelines handling multi-source, terabyte-scale data to reliably serve core application, ML, and marketing systems. Led high-impact infrastructure initiatives, including slashing Snowflake computing overhead by $40,000+/month and centralizing security logic via a Content Rights Management system for strict data governance. Spearheaded centralized dbt data modeling frameworks and automated SOX compliance tracking to significantly enhance pipeline query performance and cross-platform reliability.</div>
+          <div class="ec-role">Software Engineer, Data Platform</div>
+          <div class="ec-desc">Architected and own a petabyte-scale data-observability framework for the catalog platform. It runs parity checks against external retailer data, classifies disparities, and routes disputes through a human review workflow that writes decisions back to production. Led a Snowflake cost-reduction initiative end to end that cut spend by $40,000+/month, plus a snapshot-modeling framework that saves another ~$400/day. Also delivered the Source-of-Truth data models the marketing and ML teams run on, which meant untangling business logic spread across many upstream systems and coordinating across those teams.</div>
         </div>
       </div>
       <div class="exp-card glass reveal d2">
@@ -734,8 +734,8 @@
           <div class="ec-co">Reach</div>
         </div>
         <div>
-          <div class="ec-role">Software Engineer (Financial &amp; Data Systems)</div>
-          <div class="ec-desc">Architected and deployed robust backend infrastructure and payment pipelines to automate multi-currency merchant banking transactions and manage complex financial ledgers. Spearheaded a zero-downtime live migration of 120+ core transactional schemas from PostgreSQL to Snowflake with automated validation frameworks. Replaced legacy infrastructure with high-throughput Change Data Capture (CDC) pipelines and automated dbt workflows, dramatically improving system data accuracy while cutting cloud infrastructure overhead.</div>
+          <div class="ec-role">Software Engineer, Financial &amp; Data Systems</div>
+          <div class="ec-desc">Re-architected the accounting and tax-reporting data marts — untangled tightly-coupled legacy logic into smaller, well-scoped pipelines and took major-impact incidents in that domain from about three a week to near zero. Designed the integration architecture for multi-currency payment-settlement and tax-file publishing (SFTP, S3, AWS Secrets Manager) to external banks and jurisdictions. Ran a lift-and-shift migration of ~120 tables from PostgreSQL to Snowflake with a view-swap cutover and a tested rollback path, and moved batch updates to Change Data Capture for granular change data — about $50K/year in savings.</div>
         </div>
       </div>
       <div class="exp-card glass reveal d3">
@@ -744,18 +744,28 @@
           <div class="ec-co">TouchBistro</div>
         </div>
         <div>
-          <div class="ec-role">Software Engineer (Backend &amp; Data)</div>
-          <div class="ec-desc">Redesigned backend data architecture by migrating legacy data systems to a sharded AWS Aurora PostgreSQL cluster to handle high-throughput, terabyte-scale read/write workloads. Replaced traditional batch infrastructure with a real-time streaming architecture utilizing TypeScript and AWS SQS, resulting in an 80% reduction in application response times and sub-100ms dashboard latency. Engineered parallel processing data pipelines via Apache Spark (AWS Glue) while cutting overall compute and data pipeline costs by 40%.</div>
+          <div class="ec-role">Software Engineer, Backend &amp; Data</div>
+          <div class="ec-desc">Worked on a re-architecture of the partner reporting pipeline: a legacy batch pipeline replaced with Spark on AWS Glue, then a TypeScript + AWS SQS streaming path added alongside it so fresh attributes flow in low-latency while bulk analysis stays on batch. Contributed to the Redshift to sharded Aurora PostgreSQL migration and to query and sharding-key tuning — the effort cut application response times by ~80%, held dashboard latency sub-100ms, and lowered database and pipeline cost by ~40%. Also worked on the partner-facing and customer reporting APIs in Node.</div>
         </div>
       </div>
-      <div class="exp-card glass reveal d5">
+      <div class="exp-card glass reveal d4">
         <div>
           <div class="ec-date">Jul 2020 – Sep 2022</div>
           <div class="ec-co">University of Calgary</div>
         </div>
         <div>
-          <div class="ec-role">Machine Learning Software Engineer</div>
-          <div class="ec-desc">Built deep learning infrastructure and distributed training pipelines using Python, PyTorch, and Hugging Face to deploy large-scale Transformers (T5, BERT) across GPU clusters. Specialized in LLM domain adaptation for automated software engineering workflows and source code NLP applications. Engineered GPU-accelerated, robust data pipelines resilient against adversarial attacks and developed time-series forecasting engines for high-value industry projects.</div>
+          <div class="ec-role">Machine Learning Software Engineer (Research)</div>
+          <div class="ec-desc">M.Sc. research on language-model domain adaptation for automated program repair. Built distributed GPU training pipelines with Python, PyTorch, and Hugging Face for Transformer models (T5, BERT) and worked with the OpenAI APIs. First-author paper in ACM TOSEM, presented at ICSE 2024. Returned to the lab in early 2023 for a focused stint on OpenAI GPT fine-tuning for the same problem.</div>
+        </div>
+      </div>
+      <div class="exp-card glass reveal d5">
+        <div>
+          <div class="ec-date">Jan 2021 – Sep 2021</div>
+          <div class="ec-co">Intelius AI</div>
+        </div>
+        <div>
+          <div class="ec-role">Machine Learning Engineer (Internship)</div>
+          <div class="ec-desc">Built and evaluated machine-learning models for real-time stock-market price prediction, in partnership with the University of Calgary. Used Python and MLflow for the model lifecycle and experiment tracking.</div>
         </div>
       </div>
       <div class="exp-card glass reveal d6">
@@ -764,8 +774,8 @@
           <div class="ec-co">Yektanet</div>
         </div>
         <div>
-          <div class="ec-role">Software Engineer (Backend &amp; Machine Learning Systems)</div>
-          <div class="ec-desc">Co-architected a high-availability recommendation platform serving over 20 million unique users and sustaining 500+ RPS. Designed low-latency backend microservices using Python (Django) and RabbitMQ, integrated high-performance caching layers via Redis, and optimized PostgreSQL queries to guarantee sub-100ms real-time response times. Built Spark-based pipelines and deployed recommendation algorithms leveraging text vectorization and collaborative filtering to deliver highly personalized content feeds optimized through rigorous A/B testing.</div>
+          <div class="ec-role">Software Engineer, Backend &amp; Machine Learning Systems</div>
+          <div class="ec-desc">Architected an end-to-end recommendation platform serving 20M+ unique users at 500+ RPS. Built low-latency backend microservices in Python (Django) with RabbitMQ, designed Redis caching layers, and optimized PostgreSQL queries to hold sub-100ms responses as traffic scaled. Built Spark pipelines and implemented the recommendation algorithms (collaborative filtering, matrix factorization, content embeddings); the recommendation feed reached ~2% CTR versus sub-1% on the platform's ads, validated through A/B testing.</div>
         </div>
       </div>
     </div>
@@ -839,9 +849,9 @@
         <div class="stack-category-label">Languages</div>
         <div class="stack-tags">
           <span class="stack-tag">Python</span>
-          <span class="stack-tag">Java</span>
           <span class="stack-tag">SQL</span>
-          <span class="stack-tag">TypeScript</span>
+          <span class="stack-tag">TypeScript / Node</span>
+          <span class="stack-tag">Java</span>
           <span class="stack-tag">Bash</span>
         </div>
       </div>
@@ -866,9 +876,12 @@
           <span class="stack-tag">Apache Spark</span>
           <span class="stack-tag">ETL / ELT / CDC</span>
           <span class="stack-tag">Apache Airflow</span>
+          <span class="stack-tag">Streaming (SQS, Kafka)</span>
+          <span class="stack-tag">Data Observability</span>
           <span class="stack-tag">PostgreSQL</span>
           <span class="stack-tag">Redis</span>
           <span class="stack-tag">MongoDB</span>
+          <span class="stack-tag">Elasticsearch</span>
         </div>
       </div>
       <div class="stack-category glass reveal d4">
@@ -890,15 +903,21 @@
       <div class="stack-category glass reveal d5">
         <div class="stack-category-label">AI &amp; Machine Learning</div>
         <div class="stack-tags">
-          <span class="stack-tag">Claude Code</span>
-          <span class="stack-tag">Gemini CLI</span>
+          <span class="stack-tag">LLM APIs (OpenAI, Gemini, Claude)</span>
+          <span class="stack-tag">RAG</span>
+          <span class="stack-tag">Fine-tuning</span>
+          <span class="stack-tag">Evals</span>
+          <span class="stack-tag">Knowledge Distillation</span>
+          <span class="stack-tag">Vector Search</span>
           <span class="stack-tag">LLMs (BERT, T5)</span>
           <span class="stack-tag">NLP</span>
           <span class="stack-tag">PyTorch</span>
-          <span class="stack-tag">Keras</span>
           <span class="stack-tag">Hugging Face</span>
+          <span class="stack-tag">MLflow</span>
           <span class="stack-tag">Recommender Systems</span>
           <span class="stack-tag">A/B Testing</span>
+          <span class="stack-tag">Claude Code</span>
+          <span class="stack-tag">Gemini CLI</span>
         </div>
       </div>
     </div>
@@ -983,27 +1002,27 @@
     </div>
     <div class="reveal">
       <div class="section-label">Research</div>
-      <h2>AI Publications</h2>
-      <p class="pub-total"><strong>42 citations</strong> across 4 publications</p>
+      <h2>Publications</h2>
+      <p class="pub-total"><strong>45+ citations</strong> across 4 publications · first author on the main paper</p>
     </div>
     <div class="pub-list">
       <div class="pub-card glass reveal d1">
         <div>
           <div class="pub-tag">Journal Paper · Conference Presentation</div>
           <div class="pub-title">Improving Automated Program Repair with Domain Adaptation</div>
-          <div class="pub-meta">ACM TOSEM · ICSE 2024</div>
-          <div class="pub-cite">33 citations</div>
+          <div class="pub-meta">ACM TOSEM 33(3), 2024 · presented at ICSE 2024, Lisbon</div>
+          <div class="pub-cite">~35 citations</div>
         </div>
-        <a class="pub-link" href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">Read →</a>
+        <a class="pub-link" href="https://arxiv.org/abs/2212.11414">Read →</a>
       </div>
       <div class="pub-card glass reveal d2">
         <div>
           <div class="pub-tag">Preprint</div>
           <div class="pub-title">Online and Offline Evaluations of Collaborative Filtering and Content Based Recommender Systems</div>
-          <div class="pub-meta">arXiv · 2024</div>
-          <div class="pub-cite">5 citations</div>
+          <div class="pub-meta">arXiv:2411.01354 · 2024</div>
+          <div class="pub-cite">~6 citations</div>
         </div>
-        <a class="pub-link" href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">Read →</a>
+        <a class="pub-link" href="https://arxiv.org/abs/2411.01354">Read →</a>
       </div>
       <div class="pub-card glass reveal d3">
         <div>
@@ -1017,14 +1036,14 @@
         <div>
           <div class="pub-tag">Preprint</div>
           <div class="pub-title">Real-time Travel Time Estimation Using Matrix Factorization</div>
-          <div class="pub-meta">arXiv · 2019</div>
-          <div class="pub-cite">4 citations</div>
+          <div class="pub-meta">arXiv:1912.00455 · 2019</div>
+          <div class="pub-cite">~4 citations</div>
         </div>
-        <a class="pub-link" href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">Read →</a>
+        <a class="pub-link" href="https://arxiv.org/abs/1912.00455">Read →</a>
       </div>
     </div>
     <a class="scholar-btn glass reveal d5" href="https://scholar.google.com/citations?user=N4yMXEMAAAAJ&hl=en">
-      📚 View all on Google Scholar, 42+ citations
+      📚 View all on Google Scholar
     </a>
   </div>
 
